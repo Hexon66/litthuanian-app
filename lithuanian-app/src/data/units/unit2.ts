@@ -1,249 +1,280 @@
 import { Unit } from "../curriculum";
 
 export const unit2: Unit = {
-    id: "unit-2",
-    title: "Unit 2: The Future & Locative (A2)",
-    description: "Discussing plans and locations",
-    lessons: [
+  id: "unit-2",
+  title: "Numbers, Days & Time",
+  description: "Count, name days of the week, and tell time",
+  icon: "🔢",
+  grammarTips: [
+    {
+      title: "Lithuanian Numbers",
+      explanation: "Numbers 1-10 are the building blocks. Teens use the suffix '-lika'. Tens use '-dešimt'. Numbers have gender forms for 1, 2, and 5-9.",
+      examples: [
+        { lithuanian: "vienas (m) / viena (f)", english: "one" },
+        { lithuanian: "du (m) / dvi (f)", english: "two" },
+        { lithuanian: "trylika = trys + lika", english: "thirteen (three + teen)" },
+        { lithuanian: "dvidešimt = dvi + dešimt", english: "twenty (two + tens)" },
+      ],
+    },
+  ],
+  keyVocabulary: [
+    { lithuanian: "vienas", english: "one", gender: "m", audioText: "vienas" },
+    { lithuanian: "du", english: "two", gender: "m", audioText: "du" },
+    { lithuanian: "trys", english: "three", audioText: "trys" },
+    { lithuanian: "penki", english: "five", gender: "m", audioText: "penki" },
+    { lithuanian: "dešimt", english: "ten", audioText: "dešimt" },
+    { lithuanian: "šimtas", english: "hundred", gender: "m", audioText: "šimtas" },
+    { lithuanian: "pirmadienis", english: "Monday", gender: "m", audioText: "pirmadienis" },
+    { lithuanian: "sekmadienis", english: "Sunday", gender: "m", audioText: "sekmadienis" },
+    { lithuanian: "šiandien", english: "today", audioText: "šiandien" },
+    { lithuanian: "valanda", english: "hour", gender: "f", audioText: "valanda" },
+    { lithuanian: "rytas", english: "morning", gender: "m", audioText: "rytas" },
+    { lithuanian: "vakaras", english: "evening", gender: "m", audioText: "vakaras" },
+    { lithuanian: "naktis", english: "night", gender: "f", audioText: "naktis" },
+  ],
+  lessons: [
+    {
+      id: "lesson-2-1",
+      title: "Numbers 1-10",
+      description: "Learn to count from one to ten.",
+      exercises: [
         {
-            id: "lesson-2-1",
-            title: "Future Tense",
-            description: "What will happen?",
-            exercises: [
-                {
-                    id: "ex-2-1-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'I will go'?",
-                    options: ["Aš eisiu", "Aš ėjau", "Aš einu", "Tu eisi"],
-                    correctAnswer: "Aš eisiu",
-                    translation: "I will go",
-                    audioText: "Aš eisiu namo."
-                },
-                {
-                    id: "ex-2-1-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Mes dirbsime", "Jie dirbs", "Aš dirbsiu", "Mes dirbome"],
-                    correctAnswer: "Mes dirbsime",
-                    translation: "We will work",
-                    audioText: "Mes dirbsime"
-                },
-                {
-                    id: "ex-2-1-3",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Gyvensiu", "I will live", "Važiuosiu", "I will ride/drive"],
-                    correctAnswer: "Gyvensiu:I will live,Važiuosiu:I will ride/drive"
-                },
-                {
-                    id: "ex-2-1-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'They will buy tickets.'",
-                    options: ["Jie", "pirks", "bilietus.", "bilietus"],
-                    correctAnswer: ["Jie", "pirks", "bilietus."],
-                    audioText: "Jie pirks bilietus."
-                },
-                {
-                    id: "ex-2-1-5",
-                    type: "fill_in_blank",
-                    prompt: "Will you see? = Ar tu maty____?",
-                    correctAnswer: "si",
-                    translation: "Will you see?",
-                    audioText: "Ar tu matysi?"
-                }
-            ]
+          id: "ex-2-1-1",
+          type: "matching",
+          prompt: "Match the numbers 1-5",
+          options: ["vienas", "1", "du", "2", "trys", "3", "keturi", "4", "penki", "5"],
+          correctAnswer: "vienas:1,du:2,trys:3,keturi:4,penki:5",
+          audioText: "vienas, du, trys, keturi, penki",
         },
         {
-            id: "lesson-2-2",
-            title: "Locative Case",
-            description: "Saying 'in' or 'at'.",
-            exercises: [
-                {
-                    id: "ex-2-2-1",
-                    type: "multiple_choice",
-                    prompt: "Choose the correct locative form: 'Aš esu (miestas)'",
-                    options: ["mieste", "miestą", "miesto", "miestu"],
-                    correctAnswer: "mieste",
-                    translation: "I am in the city",
-                    audioText: "Aš esu mieste."
-                },
-                {
-                    id: "ex-2-2-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Parduotuvėje", "Mokykloje", "Darne", "Kavinėje"],
-                    correctAnswer: "Parduotuvėje",
-                    translation: "In the shop",
-                    audioText: "Parduotuvėje"
-                },
-                {
-                    id: "ex-2-2-3",
-                    type: "matching",
-                    prompt: "Match Nominative to Locative",
-                    options: ["Kavinė", "Kavinėje", "Namas", "Name"],
-                    correctAnswer: "Kavinė:Kavinėje,Namas:Name"
-                },
-                {
-                    id: "ex-2-2-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'We will live in Vilnius.'",
-                    options: ["Mes", "gyvensime", "Vilniuje.", "Vilnių."],
-                    correctAnswer: ["Mes", "gyvensime", "Vilniuje."],
-                    audioText: "Mes gyvensime Vilniuje."
-                },
-                {
-                    id: "ex-2-2-5",
-                    type: "fill_in_blank",
-                    prompt: "At work = Dar____",
-                    correctAnswer: "be",
-                    translation: "At work (from 'darbas')",
-                    audioText: "Darbe"
-                }
-            ]
+          id: "ex-2-1-2",
+          type: "listening",
+          prompt: "What number do you hear?",
+          options: ["šeši (6)", "septyni (7)", "aštuoni (8)", "devyni (9)"],
+          correctAnswer: "septyni (7)",
+          audioText: "septyni",
         },
         {
-            id: "lesson-2-3",
-            title: "Making Plans",
-            description: "Tomorrow and next week.",
-            exercises: [
-                {
-                    id: "ex-2-3-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'Next week'?",
-                    options: ["Kitą savaitę", "Šią savaitę", "Praeitą savaitę", "Rytoj"],
-                    correctAnswer: "Kitą savaitę",
-                    translation: "Next week",
-                    audioText: "Kitą savaitę"
-                },
-                {
-                    id: "ex-2-3-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Ką veiksi rytoj?", "Ką veikei vakar?", "Kur būsi rytoj?", "Ar eisime rytoj?"],
-                    correctAnswer: "Ką veiksi rytoj?",
-                    translation: "What will you do tomorrow?",
-                    audioText: "Ką veiksi rytoj?"
-                },
-                {
-                    id: "ex-2-3-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'Next month we will travel.'",
-                    options: ["Kitą", "mėnesį", "mes", "keliausime."],
-                    correctAnswer: ["Kitą", "mėnesį", "mes", "keliausime."],
-                    audioText: "Kitą mėnesį mes keliausime."
-                },
-                {
-                    id: "ex-2-3-4",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Rytoj", "Tomorrow", "Poryt", "The day after tomorrow"],
-                    correctAnswer: "Rytoj:Tomorrow,Poryt:The day after tomorrow"
-                },
-                {
-                    id: "ex-2-3-5",
-                    type: "fill_in_blank",
-                    prompt: "Will you go? = Ar eisi____?",
-                    correctAnswer: "te",
-                    translation: "Will you (plural) go?",
-                    audioText: "Ar eisite?"
-                }
-            ]
+          id: "ex-2-1-3",
+          type: "multiple_choice",
+          prompt: "What is 'dešimt' in English?",
+          options: ["ten", "five", "eight", "three"],
+          correctAnswer: "ten",
+          translation: "ten",
+          audioText: "dešimt",
         },
         {
-            id: "lesson-2-4",
-            title: "Transport (Instrumental)",
-            description: "Traveling 'by' something.",
-            exercises: [
-                {
-                    id: "ex-2-4-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'By bus'?",
-                    options: ["Autobusu", "Autobuse", "Autobusą", "Autobusas"],
-                    correctAnswer: "Autobusu",
-                    translation: "By bus",
-                    audioText: "Autobusu"
-                },
-                {
-                    id: "ex-2-4-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Aš važiuosiu traukiniu", "Aš važiavau mašina", "Aš važiuoju taksi", "Jis važiuos autobusu"],
-                    correctAnswer: "Aš važiuosiu traukiniu",
-                    translation: "I will go by train",
-                    audioText: "Aš važiuosiu traukiniu"
-                },
-                {
-                    id: "ex-2-4-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'We will fly by plane.'",
-                    options: ["Mes", "skrisime", "lėktuvu.", "lėktuve."],
-                    correctAnswer: ["Mes", "skrisime", "lėktuvu."],
-                    audioText: "Mes skrisime lėktuvu."
-                },
-                {
-                    id: "ex-2-4-4",
-                    type: "matching",
-                    prompt: "Match the methods of transport",
-                    options: ["Taksi", "By taxi (indeclinable)", "Mašina", "By car"],
-                    correctAnswer: "Taksi:By taxi (indeclinable),Mašina:By car"
-                },
-                {
-                    id: "ex-2-4-5",
-                    type: "fill_in_blank",
-                    prompt: "By bicycle = Dvirat____",
-                    correctAnswer: "iu",
-                    translation: "By bicycle",
-                    audioText: "Dviračiu"
-                }
-            ]
+          id: "ex-2-1-4",
+          type: "fill_in_blank",
+          prompt: "Six in Lithuanian: še____",
+          correctAnswer: "ši",
+          translation: "six",
+          audioText: "šeši",
         },
         {
-            id: "lesson-2-5",
-            title: "Future Story",
-            description: "Connecting sentences.",
-            exercises: [
-                {
-                    id: "ex-2-5-1",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'Tomorrow I will be at home and I will read a book.'",
-                    options: ["Rytoj", "būsiu", "namuose", "ir", "skaitysiu", "knygą."],
-                    correctAnswer: ["Rytoj", "būsiu", "namuose", "ir", "skaitysiu", "knygą."],
-                    audioText: "Rytoj būsiu namuose ir skaitysiu knygą."
-                },
-                {
-                    id: "ex-2-5-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Kitą savaitę mes važiuosime į pajūrį", "Vakar mes buvome pajūryje", "Rytoj as eisiu į mišką", "Kitą mėnesį jie keliaus lėktuvu"],
-                    correctAnswer: "Kitą savaitę mes važiuosime į pajūrį",
-                    translation: "Next week we will go to the seaside",
-                    audioText: "Kitą savaitę mes važiuosime į pajūrį"
-                },
-                {
-                    id: "ex-2-5-3",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'We will see!'?",
-                    options: ["Pamatysime!", "Pamatėme!", "Matome!", "Žiūrime!"],
-                    correctAnswer: "Pamatysime!",
-                    translation: "We will see!",
-                    audioText: "Pamatysime!"
-                },
-                {
-                    id: "ex-2-5-4",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Miegosiu", "I will sleep", "Rašysiu", "I will write"],
-                    correctAnswer: "Miegosiu:I will sleep,Rašysiu:I will write"
-                },
-                {
-                    id: "ex-2-5-5",
-                    type: "fill_in_blank",
-                    prompt: "It will be interesting = Bus įdo____",
-                    correctAnswer: "mu",
-                    translation: "It will be interesting",
-                    audioText: "Bus įdomu"
-                }
-            ]
-        }
-    ]
+          id: "ex-2-1-5",
+          type: "matching",
+          prompt: "Match numbers 6-10",
+          options: ["šeši", "6", "septyni", "7", "aštuoni", "8", "devyni", "9", "dešimt", "10"],
+          correctAnswer: "šeši:6,septyni:7,aštuoni:8,devyni:9,dešimt:10",
+          audioText: "šeši, septyni, aštuoni, devyni, dešimt",
+        },
+      ],
+    },
+    {
+      id: "lesson-2-2",
+      title: "Numbers 11-100",
+      description: "Teens, tens, and one hundred.",
+      exercises: [
+        {
+          id: "ex-2-2-1",
+          type: "multiple_choice",
+          prompt: "How do you say '20' in Lithuanian?",
+          options: ["dvidešimt", "trisdešimt", "dvylika", "dešimt"],
+          correctAnswer: "dvidešimt",
+          translation: "twenty",
+          audioText: "dvidešimt",
+        },
+        {
+          id: "ex-2-2-2",
+          type: "fill_in_blank",
+          prompt: "Twelve = dvy____",
+          correctAnswer: "lika",
+          translation: "twelve",
+          audioText: "dvylika",
+        },
+        {
+          id: "ex-2-2-3",
+          type: "matching",
+          prompt: "Match the numbers",
+          options: ["vienuolika", "11", "penkiolika", "15", "dvidešimt", "20", "šimtas", "100"],
+          correctAnswer: "vienuolika:11,penkiolika:15,dvidešimt:20,šimtas:100",
+          audioText: "vienuolika, penkiolika, dvidešimt, šimtas",
+        },
+        {
+          id: "ex-2-2-4",
+          type: "listening",
+          prompt: "What number do you hear?",
+          options: ["trisdešimt (30)", "penkiasdešimt (50)", "dvidešimt (20)", "keturiasdešimt (40)"],
+          correctAnswer: "penkiasdešimt (50)",
+          audioText: "penkiasdešimt",
+        },
+        {
+          id: "ex-2-2-5",
+          type: "multiple_choice",
+          prompt: "What is 'šimtas'?",
+          options: ["100", "1000", "10", "50"],
+          correctAnswer: "100",
+          translation: "one hundred",
+          audioText: "šimtas",
+        },
+      ],
+    },
+    {
+      id: "lesson-2-3",
+      title: "Days of the Week",
+      description: "Monday through Sunday.",
+      exercises: [
+        {
+          id: "ex-2-3-1",
+          type: "matching",
+          prompt: "Match the days",
+          options: ["pirmadienis", "Monday", "antradienis", "Tuesday", "trečiadienis", "Wednesday"],
+          correctAnswer: "pirmadienis:Monday,antradienis:Tuesday,trečiadienis:Wednesday",
+          audioText: "pirmadienis, antradienis, trečiadienis",
+        },
+        {
+          id: "ex-2-3-2",
+          type: "multiple_choice",
+          prompt: "What day is 'penktadienis'?",
+          options: ["Friday", "Thursday", "Saturday", "Sunday"],
+          correctAnswer: "Friday",
+          translation: "Friday",
+          audioText: "penktadienis",
+        },
+        {
+          id: "ex-2-3-3",
+          type: "listening",
+          prompt: "What day do you hear?",
+          options: ["šeštadienis (Saturday)", "sekmadienis (Sunday)", "ketvirtadienis (Thursday)", "pirmadienis (Monday)"],
+          correctAnswer: "sekmadienis (Sunday)",
+          audioText: "sekmadienis",
+        },
+        {
+          id: "ex-2-3-4",
+          type: "fill_in_blank",
+          prompt: "Today is = Šiandien ____",
+          correctAnswer: "yra",
+          translation: "Today is",
+          audioText: "Šiandien yra pirmadienis",
+        },
+        {
+          id: "ex-2-3-5",
+          type: "sentence_arrange",
+          prompt: "Say: 'Today is Wednesday'",
+          options: ["Šiandien", "yra", "trečiadienis.", "vakar", "buvo"],
+          correctAnswer: ["Šiandien", "yra", "trečiadienis."],
+          translation: "Today is Wednesday",
+          audioText: "Šiandien yra trečiadienis.",
+        },
+      ],
+    },
+    {
+      id: "lesson-2-4",
+      title: "Months & Seasons",
+      description: "Name the months and seasons.",
+      exercises: [
+        {
+          id: "ex-2-4-1",
+          type: "matching",
+          prompt: "Match the seasons",
+          options: ["pavasaris", "spring", "vasara", "summer", "ruduo", "autumn", "žiema", "winter"],
+          correctAnswer: "pavasaris:spring,vasara:summer,ruduo:autumn,žiema:winter",
+          audioText: "pavasaris, vasara, ruduo, žiema",
+        },
+        {
+          id: "ex-2-4-2",
+          type: "multiple_choice",
+          prompt: "What month is 'sausis'?",
+          options: ["January", "June", "September", "March"],
+          correctAnswer: "January",
+          translation: "January",
+          audioText: "sausis",
+        },
+        {
+          id: "ex-2-4-3",
+          type: "fill_in_blank",
+          prompt: "December = Gruo____",
+          correctAnswer: "dis",
+          translation: "December",
+          audioText: "gruodis",
+        },
+        {
+          id: "ex-2-4-4",
+          type: "listening",
+          prompt: "What season do you hear?",
+          options: ["pavasaris (spring)", "vasara (summer)", "ruduo (autumn)", "žiema (winter)"],
+          correctAnswer: "vasara (summer)",
+          audioText: "vasara",
+        },
+        {
+          id: "ex-2-4-5",
+          type: "matching",
+          prompt: "Match the months",
+          options: ["kovas", "March", "birželis", "June", "rugsėjis", "September"],
+          correctAnswer: "kovas:March,birželis:June,rugsėjis:September",
+          audioText: "kovas, birželis, rugsėjis",
+        },
+      ],
+    },
+    {
+      id: "lesson-2-5",
+      title: "What Time Is It?",
+      description: "Tell time and parts of the day.",
+      exercises: [
+        {
+          id: "ex-2-5-1",
+          type: "multiple_choice",
+          prompt: "How do you ask 'What time is it?'",
+          options: ["Kiek valandų?", "Kaip sekasi?", "Kur eini?", "Kas yra?"],
+          correctAnswer: "Kiek valandų?",
+          translation: "What time is it?",
+          audioText: "Kiek valandų?",
+        },
+        {
+          id: "ex-2-5-2",
+          type: "matching",
+          prompt: "Match the parts of the day",
+          options: ["rytas", "morning", "diena", "day/afternoon", "vakaras", "evening", "naktis", "night"],
+          correctAnswer: "rytas:morning,diena:day/afternoon,vakaras:evening,naktis:night",
+          audioText: "rytas, diena, vakaras, naktis",
+        },
+        {
+          id: "ex-2-5-3",
+          type: "fill_in_blank",
+          prompt: "Hour = Val____",
+          correctAnswer: "anda",
+          translation: "hour",
+          audioText: "valanda",
+        },
+        {
+          id: "ex-2-5-4",
+          type: "listening",
+          prompt: "What do you hear?",
+          options: ["Dabar yra trys valandos", "Dabar yra penkios valandos", "Dabar yra septynios valandos", "Dabar yra devynios valandos"],
+          correctAnswer: "Dabar yra penkios valandos",
+          audioText: "Dabar yra penkios valandos",
+        },
+        {
+          id: "ex-2-5-5",
+          type: "sentence_arrange",
+          prompt: "Say: 'It is now three o'clock'",
+          options: ["Dabar", "yra", "trys", "valandos.", "penkios", "minutės"],
+          correctAnswer: ["Dabar", "yra", "trys", "valandos."],
+          translation: "It is now three o'clock",
+          audioText: "Dabar yra trys valandos.",
+        },
+      ],
+    },
+  ],
 };

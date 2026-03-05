@@ -1,249 +1,98 @@
 import { Unit } from "../curriculum";
 
 export const unit3: Unit = {
-    id: "unit-3",
-    title: "Unit 3: Genitive & Quantities (A2)",
-    description: "Expressing 'how much' and possession",
-    lessons: [
-        {
-            id: "lesson-3-1",
-            title: "Possession (Whose?)",
-            description: "Saying who owns what.",
-            exercises: [
-                {
-                    id: "ex-3-1-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'My brother's car'?",
-                    options: ["Mano brolio mašina", "Mano brolis mašina", "Mano brolį mašiną", "Mano broliui mašina"],
-                    correctAnswer: "Mano brolio mašina",
-                    translation: "My brother's car",
-                    audioText: "Tai yra mano brolio mašina."
-                },
-                {
-                    id: "ex-3-1-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Kieno tai knyga?", "Kur tai knyga?", "Kokia tai knyga?", "Kam ta knyga?"],
-                    correctAnswer: "Kieno tai knyga?",
-                    translation: "Whose book is this?",
-                    audioText: "Kieno tai knyga?"
-                },
-                {
-                    id: "ex-3-1-3",
-                    type: "matching",
-                    prompt: "Match Nominative to Genitive",
-                    options: ["Draugas", "Draugo", "Mokytoja", "Mokytojos"],
-                    correctAnswer: "Draugas:Draugo,Mokytoja:Mokytojos"
-                },
-                {
-                    id: "ex-3-1-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'This is the student's book.'",
-                    options: ["Tai", "yra", "studento", "knyga."],
-                    correctAnswer: ["Tai", "yra", "studento", "knyga."],
-                    audioText: "Tai yra studento knyga."
-                },
-                {
-                    id: "ex-3-1-5",
-                    type: "fill_in_blank",
-                    prompt: "Sister's = Sese____",
-                    correctAnswer: "ries",
-                    translation: "Sister's (from 'sesuo')",
-                    audioText: "Seseries"
-                }
-            ]
-        },
-        {
-            id: "lesson-3-2",
-            title: "Quantities (A lot, A little)",
-            description: "Daug, mažai, and numbers.",
-            exercises: [
-                {
-                    id: "ex-3-2-1",
-                    type: "multiple_choice",
-                    prompt: "Choose the correct ending: 'Daug (žmonės)'",
-                    options: ["žmonių", "žmones", "žmonėms", "žmonėmis"],
-                    correctAnswer: "žmonių",
-                    translation: "A lot of people",
-                    audioText: "Parduotuvėje yra daug žmonių."
-                },
-                {
-                    id: "ex-3-2-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Man reikia nedaug vandens", "Aš noriu daug vandens", "Ji turi mažai laiko", "Mes neturime pinigų"],
-                    correctAnswer: "Ji turi mažai laiko",
-                    translation: "She has little time",
-                    audioText: "Ji turi mažai laiko"
-                },
-                {
-                    id: "ex-3-2-3",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Daug", "Much/Many", "Mažai", "Little/Few"],
-                    correctAnswer: "Daug:Much/Many,Mažai:Little/Few"
-                },
-                {
-                    id: "ex-3-2-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'We have a lot of work.'",
-                    options: ["Mes", "turime", "daug", "darbo.", "darbų."],
-                    correctAnswer: ["Mes", "turime", "daug", "darbo."],
-                    audioText: "Mes turime daug darbo."
-                },
-                {
-                    id: "ex-3-2-5",
-                    type: "fill_in_blank",
-                    prompt: "Little money = Mažai pini____",
-                    correctAnswer: "gų",
-                    translation: "Little money",
-                    audioText: "Mažai pinigų"
-                }
-            ]
-        },
-        {
-            id: "lesson-3-3",
-            title: "Having to / Needing to",
-            description: "Reikia + Genitive.",
-            exercises: [
-                {
-                    id: "ex-3-3-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'I need help (pagalba)'?",
-                    options: ["Man reikia pagalbos", "Man reikia pagalbą", "Aš reikia pagalba", "Man pagalboje"],
-                    correctAnswer: "Man reikia pagalbos",
-                    translation: "I need help",
-                    audioText: "Man reikia pagalbos."
-                },
-                {
-                    id: "ex-3-3-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Ar tau reikia vandens?", "Ar jums reikia pagalbos?", "Man reikia kavos", "Jums reikia miego"],
-                    correctAnswer: "Ar jums reikia pagalbos?",
-                    translation: "Do you (formal/plural) need help?",
-                    audioText: "Ar jums reikia pagalbos?"
-                },
-                {
-                    id: "ex-3-3-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'He needs a new car.'",
-                    options: ["Jam", "reikia", "naujos", "mašinos.", "mašiną."],
-                    correctAnswer: ["Jam", "reikia", "naujos", "mašinos."],
-                    audioText: "Jam reikia naujos mašinos."
-                },
-                {
-                    id: "ex-3-3-4",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Man reikia", "I need", "Tau reikia", "You need"],
-                    correctAnswer: "Man reikia:I need,Tau reikia:You need"
-                },
-                {
-                    id: "ex-3-3-5",
-                    type: "fill_in_blank",
-                    prompt: "I need peace = Man reikia ramy____",
-                    correctAnswer: "bės",
-                    translation: "I need peace/quiet",
-                    audioText: "Man reikia ramybės"
-                }
-            ]
-        },
-        {
-            id: "lesson-3-4",
-            title: "Genitive Prepositions",
-            description: "Iš, Nuo, Iki, Prie, Po.",
-            exercises: [
-                {
-                    id: "ex-3-4-1",
-                    type: "multiple_choice",
-                    prompt: "Choose the correct form: 'Mano namas yra prie (parkas)'",
-                    options: ["parko", "parke", "parką", "parkui"],
-                    correctAnswer: "parko",
-                    translation: "My house is by the park",
-                    audioText: "Mano namas yra prie parko."
-                },
-                {
-                    id: "ex-3-4-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Nuo ryto iki vakaro", "Iš namų į darbą", "Prie jūros", "Po darbo"],
-                    correctAnswer: "Nuo ryto iki vakaro",
-                    translation: "From morning until evening",
-                    audioText: "Nuo ryto iki vakaro"
-                },
-                {
-                    id: "ex-3-4-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'I am going from the shop.'",
-                    options: ["Aš", "einu", "iš", "parduotuvės."],
-                    correctAnswer: ["Aš", "einu", "iš", "parduotuvės."],
-                    audioText: "Aš einu iš parduotuvės."
-                },
-                {
-                    id: "ex-3-4-4",
-                    type: "matching",
-                    prompt: "Match the prepositions",
-                    options: ["Iš", "From/Out of", "Prie", "By/Near"],
-                    correctAnswer: "Iš:From/Out of,Prie:By/Near"
-                },
-                {
-                    id: "ex-3-4-5",
-                    type: "fill_in_blank",
-                    prompt: "After work = Po dar____",
-                    correctAnswer: "bo",
-                    translation: "After work",
-                    audioText: "Po darbo"
-                }
-            ]
-        },
-        {
-            id: "lesson-3-5",
-            title: "Genitive in Practice",
-            description: "Mixed sentences using Genitive.",
-            exercises: [
-                {
-                    id: "ex-3-5-1",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'There are a lot of interesting places near the sea.'",
-                    options: ["Prie", "jūros", "yra", "daug", "įdomių", "vietų."],
-                    correctAnswer: ["Prie", "jūros", "yra", "daug", "įdomių", "vietų."],
-                    audioText: "Prie jūros yra daug įdomių vietų."
-                },
-                {
-                    id: "ex-3-5-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Man reikia išmokti daug naujų žodžių", "Jam reikia daugiau laisvo laiko", "Mums trūksta pinigų", "Man nereikia pagalbos"],
-                    correctAnswer: "Man reikia išmokti daug naujų žodžių",
-                    translation: "I need to learn a lot of new words",
-                    audioText: "Man reikia išmokti daug naujų žodžių"
-                },
-                {
-                    id: "ex-3-5-3",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'A little bit of water'?",
-                    options: ["Šiek tiek vandens", "Daug vandens", "Vandenį", "Be vandens"],
-                    correctAnswer: "Šiek tiek vandens",
-                    translation: "A little bit of water",
-                    audioText: "Prašau šiek tiek vandens."
-                },
-                {
-                    id: "ex-3-5-4",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Neturiu", "I don't have", "Šiek tiek", "A little bit"],
-                    correctAnswer: "Neturiu:I don't have,Šiek tiek:A little bit"
-                },
-                {
-                    id: "ex-3-5-5",
-                    type: "fill_in_blank",
-                    prompt: "I don't have time = Aš neturiu lai____",
-                    correctAnswer: "ko",
-                    translation: "I don't have time",
-                    audioText: "Aš neturiu laiko."
-                }
-            ]
-        }
-    ]
+  id: "unit-3",
+  title: "About Me",
+  description: "Talk about family, nationality, and who you are",
+  icon: "🧑",
+  grammarTips: [
+    {
+      title: "Gender in Lithuanian",
+      explanation: "Every Lithuanian noun is masculine or feminine. Masculine nouns usually end in -as, -is, or -us. Feminine nouns usually end in -a or -ė.",
+      examples: [
+        { lithuanian: "brolis (-is = masculine)", english: "brother" },
+        { lithuanian: "sesuo (-uo = feminine)", english: "sister" },
+        { lithuanian: "studentas (-as = masculine)", english: "male student" },
+        { lithuanian: "studentė (-ė = feminine)", english: "female student" },
+      ],
+    },
+  ],
+  keyVocabulary: [
+    { lithuanian: "mama", english: "mom", gender: "f", audioText: "mama" },
+    { lithuanian: "tėtis", english: "dad", gender: "m", audioText: "tėtis" },
+    { lithuanian: "brolis", english: "brother", gender: "m", audioText: "brolis" },
+    { lithuanian: "sesuo", english: "sister", gender: "f", audioText: "sesuo" },
+    { lithuanian: "šeima", english: "family", gender: "f", audioText: "šeima" },
+    { lithuanian: "draugas", english: "friend (m)", gender: "m", audioText: "draugas" },
+    { lithuanian: "draugė", english: "friend (f)", gender: "f", audioText: "draugė" },
+    { lithuanian: "lietuvis", english: "Lithuanian (m)", gender: "m", audioText: "lietuvis" },
+    { lithuanian: "lietuvė", english: "Lithuanian (f)", gender: "f", audioText: "lietuvė" },
+    { lithuanian: "metai", english: "years", audioText: "metai" },
+    { lithuanian: "jis", english: "he", gender: "m", audioText: "jis" },
+    { lithuanian: "ji", english: "she", gender: "f", audioText: "ji" },
+    { lithuanian: "studentas", english: "student (m)", gender: "m", audioText: "studentas" },
+    { lithuanian: "mokytojas", english: "teacher (m)", gender: "m", audioText: "mokytojas" },
+  ],
+  lessons: [
+    {
+      id: "lesson-3-1",
+      title: "I Am From...",
+      description: "Talk about where you are from.",
+      exercises: [
+        { id: "ex-3-1-1", type: "multiple_choice", prompt: "How do you say 'I am from Lithuania'?", options: ["Aš esu iš Lietuvos", "Aš esu Lietuva", "Aš iš Lietuvos esu", "Mano Lietuva"], correctAnswer: "Aš esu iš Lietuvos", translation: "I am from Lithuania", audioText: "Aš esu iš Lietuvos" },
+        { id: "ex-3-1-2", type: "matching", prompt: "Match countries", options: ["Lietuva", "Lithuania", "Anglija", "England", "Vokietija", "Germany"], correctAnswer: "Lietuva:Lithuania,Anglija:England,Vokietija:Germany", audioText: "Lietuva, Anglija, Vokietija" },
+        { id: "ex-3-1-3", type: "fill_in_blank", prompt: "A Lithuanian man = Lietu____", correctAnswer: "vis", translation: "Lithuanian (m)", audioText: "lietuvis" },
+        { id: "ex-3-1-4", type: "listening", prompt: "What country do you hear?", options: ["Lietuva", "Latvija", "Lenkija", "Anglija"], correctAnswer: "Lietuva", audioText: "Lietuva" },
+        { id: "ex-3-1-5", type: "sentence_arrange", prompt: "Say: 'I am from England'", options: ["Aš", "esu", "iš", "Anglijos.", "Lietuvos.", "tu"], correctAnswer: ["Aš", "esu", "iš", "Anglijos."], translation: "I am from England", audioText: "Aš esu iš Anglijos." },
+      ],
+    },
+    {
+      id: "lesson-3-2",
+      title: "How Old Are You?",
+      description: "Talk about age.",
+      exercises: [
+        { id: "ex-3-2-1", type: "multiple_choice", prompt: "How do you ask 'How old are you?'", options: ["Kiek tau metų?", "Kaip sekasi?", "Kur tu gyveni?", "Kas tu esi?"], correctAnswer: "Kiek tau metų?", translation: "How old are you?", audioText: "Kiek tau metų?" },
+        { id: "ex-3-2-2", type: "fill_in_blank", prompt: "I am 25 years old = Man yra dvidešimt penki ____", correctAnswer: "metų", translation: "I am 25 years old", audioText: "Man yra dvidešimt penki metai" },
+        { id: "ex-3-2-3", type: "listening", prompt: "How old is this person?", options: ["20 metų", "25 metų", "30 metų", "18 metų"], correctAnswer: "25 metų", audioText: "Man yra dvidešimt penki metai" },
+        { id: "ex-3-2-4", type: "sentence_arrange", prompt: "Say: 'I am 20 years old'", options: ["Man", "yra", "dvidešimt", "metų.", "penki", "tu"], correctAnswer: ["Man", "yra", "dvidešimt", "metų."], translation: "I am 20 years old", audioText: "Man yra dvidešimt metų." },
+        { id: "ex-3-2-5", type: "multiple_choice", prompt: "What does 'metų' mean?", options: ["years (of age)", "months", "days", "hours"], correctAnswer: "years (of age)", translation: "years", audioText: "metų" },
+      ],
+    },
+    {
+      id: "lesson-3-3",
+      title: "My Family",
+      description: "Name your family members.",
+      exercises: [
+        { id: "ex-3-3-1", type: "matching", prompt: "Match family members", options: ["mama", "mom", "tėtis", "dad", "brolis", "brother", "sesuo", "sister"], correctAnswer: "mama:mom,tėtis:dad,brolis:brother,sesuo:sister", audioText: "mama, tėtis, brolis, sesuo" },
+        { id: "ex-3-3-2", type: "multiple_choice", prompt: "What is 'šeima'?", options: ["family", "friend", "sister", "home"], correctAnswer: "family", translation: "family", audioText: "šeima" },
+        { id: "ex-3-3-3", type: "fill_in_blank", prompt: "Son = Sū____", correctAnswer: "nus", translation: "son", audioText: "sūnus" },
+        { id: "ex-3-3-4", type: "listening", prompt: "Who is mentioned?", options: ["brolis (brother)", "sesuo (sister)", "mama (mom)", "tėtis (dad)"], correctAnswer: "sesuo (sister)", audioText: "Mano sesuo" },
+        { id: "ex-3-3-5", type: "sentence_arrange", prompt: "Say: 'My family is big'", options: ["Mano", "šeima", "yra", "didelė.", "maža.", "tu"], correctAnswer: ["Mano", "šeima", "yra", "didelė."], translation: "My family is big", audioText: "Mano šeima yra didelė." },
+      ],
+    },
+    {
+      id: "lesson-3-4",
+      title: "He, She, They",
+      description: "Learn pronouns and gender endings.",
+      exercises: [
+        { id: "ex-3-4-1", type: "matching", prompt: "Match the pronouns", options: ["aš", "I", "tu", "you", "jis", "he", "ji", "she"], correctAnswer: "aš:I,tu:you,jis:he,ji:she", audioText: "aš, tu, jis, ji" },
+        { id: "ex-3-4-2", type: "multiple_choice", prompt: "'He is a student' — which ending?", options: ["Jis yra studentas", "Jis yra studentė", "Ji yra studentas", "Jis yra studente"], correctAnswer: "Jis yra studentas", translation: "He is a student", audioText: "Jis yra studentas" },
+        { id: "ex-3-4-3", type: "fill_in_blank", prompt: "She is a student = Ji yra student____", correctAnswer: "ė", translation: "She is a student", audioText: "Ji yra studentė" },
+        { id: "ex-3-4-4", type: "listening", prompt: "Is this about 'he' or 'she'?", options: ["Jis (he)", "Ji (she)"], correctAnswer: "Ji (she)", audioText: "Ji yra mokytoja" },
+        { id: "ex-3-4-5", type: "multiple_choice", prompt: "What are 'jie' and 'jos'?", options: ["they (m) and they (f)", "he and she", "we and you", "I and you"], correctAnswer: "they (m) and they (f)", translation: "they", audioText: "jie, jos" },
+      ],
+    },
+    {
+      id: "lesson-3-5",
+      title: "What Do You Do?",
+      description: "Talk about professions.",
+      exercises: [
+        { id: "ex-3-5-1", type: "matching", prompt: "Match professions", options: ["mokytojas", "teacher (m)", "gydytojas", "doctor (m)", "studentas", "student (m)"], correctAnswer: "mokytojas:teacher (m),gydytojas:doctor (m),studentas:student (m)", audioText: "mokytojas, gydytojas, studentas" },
+        { id: "ex-3-5-2", type: "fill_in_blank", prompt: "Female teacher = Mokyto____", correctAnswer: "ja", translation: "teacher (f)", audioText: "mokytoja" },
+        { id: "ex-3-5-3", type: "multiple_choice", prompt: "What is 'gydytoja'?", options: ["doctor (f)", "teacher (f)", "student (f)", "nurse (f)"], correctAnswer: "doctor (f)", translation: "doctor (f)", audioText: "gydytoja" },
+        { id: "ex-3-5-4", type: "listening", prompt: "What profession do you hear?", options: ["mokytojas (teacher)", "gydytojas (doctor)", "studentas (student)", "programuotojas (programmer)"], correctAnswer: "programuotojas (programmer)", audioText: "Aš esu programuotojas" },
+        { id: "ex-3-5-5", type: "sentence_arrange", prompt: "Say: 'She is a doctor'", options: ["Ji", "yra", "gydytoja.", "gydytojas.", "jis", "studentė."], correctAnswer: ["Ji", "yra", "gydytoja."], translation: "She is a doctor", audioText: "Ji yra gydytoja." },
+      ],
+    },
+  ],
 };

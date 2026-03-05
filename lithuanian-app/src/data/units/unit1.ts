@@ -1,249 +1,286 @@
 import { Unit } from "../curriculum";
 
 export const unit1: Unit = {
-    id: "unit-1",
-    title: "Unit 1: The Past & Accusative (A2)",
-    description: "Talk about what you did yesterday",
-    lessons: [
+  id: "unit-1",
+  title: "First Words & Sounds",
+  description: "Learn greetings, polite words, and introduce yourself",
+  icon: "👋",
+  grammarTips: [
+    {
+      title: "Lithuanian Alphabet",
+      explanation: "Lithuanian uses the Latin alphabet plus 9 special letters: ą, č, ę, ė, į, š, ų, ū, ž. Once you learn them, you can read any Lithuanian word!",
+      examples: [
+        { lithuanian: "ą — long 'a' (like 'ah')", english: "as in 'ąžuolas' (oak)" },
+        { lithuanian: "č — 'ch' (like 'church')", english: "as in 'čia' (here)" },
+        { lithuanian: "š — 'sh' (like 'ship')", english: "as in 'šuo' (dog)" },
+        { lithuanian: "ž — 'zh' (like 'pleasure')", english: "as in 'žmogus' (person)" },
+        { lithuanian: "ė — long 'e' (like 'air')", english: "as in 'ačiū' vs 'ė' in 'gėlė' (flower)" },
+      ],
+    },
+  ],
+  keyVocabulary: [
+    { lithuanian: "Labas", english: "Hello/Hi", audioText: "Labas" },
+    { lithuanian: "Laba diena", english: "Good day", audioText: "Laba diena" },
+    { lithuanian: "Labas rytas", english: "Good morning", audioText: "Labas rytas" },
+    { lithuanian: "Labas vakaras", english: "Good evening", audioText: "Labas vakaras" },
+    { lithuanian: "Viso gero", english: "Goodbye", audioText: "Viso gero" },
+    { lithuanian: "Iki", english: "Bye", audioText: "Iki" },
+    { lithuanian: "Ačiū", english: "Thank you", audioText: "Ačiū" },
+    { lithuanian: "Prašau", english: "Please / You're welcome", audioText: "Prašau" },
+    { lithuanian: "Atsiprašau", english: "Sorry / Excuse me", audioText: "Atsiprašau" },
+    { lithuanian: "Taip", english: "Yes", audioText: "Taip" },
+    { lithuanian: "Ne", english: "No", audioText: "Ne" },
+    { lithuanian: "Gerai", english: "Good / OK", audioText: "Gerai" },
+    { lithuanian: "Kaip sekasi?", english: "How are you?", audioText: "Kaip sekasi?" },
+    { lithuanian: "Mano vardas", english: "My name", audioText: "Mano vardas" },
+    { lithuanian: "Malonu", english: "Nice to meet you", audioText: "Malonu" },
+  ],
+  lessons: [
+    {
+      id: "lesson-1-1",
+      title: "Saying Hello",
+      description: "Learn basic greetings in Lithuanian.",
+      exercises: [
         {
-            id: "lesson-1-1",
-            title: "Weekend Actions",
-            description: "Past tense verbs.",
-            exercises: [
-                {
-                    id: "ex-1-1-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'I worked'?",
-                    options: ["Aš dirbau", "Aš dirbu", "Aš dirbsiu", "Aš dirbti"],
-                    correctAnswer: "Aš dirbau",
-                    translation: "I worked",
-                    audioText: "Aš dirbau ieri, bet šiandien ilsiuosi."
-                },
-                {
-                    id: "ex-1-1-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Jis skaitė knygą", "Jis skaito knygą", "Aš skaičiau knygą", "Ji skaitys knygą"],
-                    correctAnswer: "Jis skaitė knygą",
-                    translation: "He was reading a book",
-                    audioText: "Jis skaitė knygą"
-                },
-                {
-                    id: "ex-1-1-3",
-                    type: "matching",
-                    prompt: "Match the past tense verbs",
-                    options: ["Mačiau", "I saw", "Ėjau", "I went (by foot)"],
-                    correctAnswer: "Mačiau:I saw,Ėjau:I went (by foot)"
-                },
-                {
-                    id: "ex-1-1-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'We watched a movie yesterday.'",
-                    options: ["Mes", "vakar", "žiūrėjome", "filmą.", "filmui."],
-                    correctAnswer: ["Mes", "vakar", "žiūrėjome", "filmą."],
-                    audioText: "Mes vakar žiūrėjome filmą."
-                },
-                {
-                    id: "ex-1-1-5",
-                    type: "fill_in_blank",
-                    prompt: "Did you buy? = Ar tu pir____?",
-                    correctAnswer: "kai",
-                    translation: "Did you buy?",
-                    audioText: "Ar tu pirkai?"
-                }
-            ]
+          id: "ex-1-1-1",
+          type: "multiple_choice",
+          prompt: "How do you say 'Hello' in Lithuanian?",
+          options: ["Labas", "Viso gero", "Ačiū", "Prašau"],
+          correctAnswer: "Labas",
+          translation: "Hello",
+          audioText: "Labas",
         },
         {
-            id: "lesson-1-2",
-            title: "Using the Accusative",
-            description: "Direct objects.",
-            exercises: [
-                {
-                    id: "ex-1-2-1",
-                    type: "multiple_choice",
-                    prompt: "Choose the correct accusative form: 'Aš matau (namas)'",
-                    options: ["namą", "namo", "name", "namu"],
-                    correctAnswer: "namą",
-                    translation: "I see a house",
-                    audioText: "Aš matau namą."
-                },
-                {
-                    id: "ex-1-2-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Aš išgėriau kavą", "Aš geriu kavą", "Tu gėrei kavos", "Jis geria kavą"],
-                    correctAnswer: "Aš išgėriau kavą",
-                    translation: "I drank the coffee",
-                    audioText: "Aš išgėriau kavą"
-                },
-                {
-                    id: "ex-1-2-3",
-                    type: "matching",
-                    prompt: "Match the Nominative to Accusative",
-                    options: ["Knyga", "Knygą", "Automobilis", "Automobilį"],
-                    correctAnswer: "Knyga:Knygą,Automobilis:Automobilį"
-                },
-                {
-                    id: "ex-1-2-4",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'She met a friend.'",
-                    options: ["Ji", "sutiko", "draugą.", "draugas."],
-                    correctAnswer: ["Ji", "sutiko", "draugą."],
-                    audioText: "Ji sutiko draugą."
-                },
-                {
-                    id: "ex-1-2-5",
-                    type: "fill_in_blank",
-                    prompt: "I wrote a letter = Aš parašiau laiš____",
-                    correctAnswer: "ką",
-                    translation: "I wrote a letter",
-                    audioText: "Aš parašiau laišką."
-                }
-            ]
+          id: "ex-1-1-2",
+          type: "matching",
+          prompt: "Match the greetings with their meanings",
+          options: ["Labas rytas", "Good morning", "Labas vakaras", "Good evening"],
+          correctAnswer: "Labas rytas:Good morning,Labas vakaras:Good evening",
+          audioText: "Labas rytas. Labas vakaras.",
         },
         {
-            id: "lesson-1-3",
-            title: "Questions in the Past",
-            description: "Asking about yesterday.",
-            exercises: [
-                {
-                    id: "ex-1-3-1",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'What did you do?'",
-                    options: ["Ką tu veikei?", "Ką tu veiki?", "Ką tu veiksi?", "Kaip tu darai?"],
-                    correctAnswer: "Ką tu veikei?",
-                    translation: "What did you do?",
-                    audioText: "Ką tu veikei?"
-                },
-                {
-                    id: "ex-1-3-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Kur buvote?", "Ką jūs darėte?", "Kada atėjote?", "Kodėl išėjote?"],
-                    correctAnswer: "Kur buvote?",
-                    translation: "Where were you? (formal/plural)",
-                    audioText: "Kur buvote?"
-                },
-                {
-                    id: "ex-1-3-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'When did they return?'",
-                    options: ["Kada", "jie", "grįžo?", "grįžta?"],
-                    correctAnswer: ["Kada", "jie", "grįžo?"],
-                    audioText: "Kada jie grįžo?"
-                },
-                {
-                    id: "ex-1-3-4",
-                    type: "matching",
-                    prompt: "Match the pairs",
-                    options: ["Ką valgei?", "What did you eat?", "Kur buvai?", "Where were you?"],
-                    correctAnswer: "Ką valgei?:What did you eat?,Kur buvai?:Where were you?"
-                },
-                {
-                    id: "ex-1-3-5",
-                    type: "fill_in_blank",
-                    prompt: "Did you sleep well? = Ar gerai miego____?",
-                    correctAnswer: "jai",
-                    translation: "Did you sleep well?",
-                    audioText: "Ar gerai miegojai?"
-                }
-            ]
+          id: "ex-1-1-3",
+          type: "listening",
+          prompt: "What greeting do you hear?",
+          options: ["Labas rytas", "Laba diena", "Labas vakaras", "Labas"],
+          correctAnswer: "Laba diena",
+          audioText: "Laba diena",
         },
         {
-            id: "lesson-1-4",
-            title: "Negative Past & Accusative",
-            description: "With negatives, Accusative becomes Genitive.",
-            exercises: [
-                {
-                    id: "ex-1-4-1",
-                    type: "multiple_choice",
-                    prompt: "I bought a book (knygą) -> I didn't buy a book (____)",
-                    options: ["knygos", "knygą", "knygai", "knygoje"],
-                    correctAnswer: "knygos",
-                    translation: "I didn't buy a book",
-                    audioText: "Aš nepirkau knygos."
-                },
-                {
-                    id: "ex-1-4-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Mes nematėme filmo", "Mes matėme filmą", "Jie nematė filmo", "Aš nemačiau filmo"],
-                    correctAnswer: "Mes nematėme filmo",
-                    translation: "We didn't see the movie",
-                    audioText: "Mes nematėme filmo"
-                },
-                {
-                    id: "ex-1-4-3",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'He didn't read the letter.'",
-                    options: ["Jis", "neskaitė", "laiško.", "laišką."],
-                    correctAnswer: ["Jis", "neskaitė", "laiško."],
-                    audioText: "Jis neskaitė laiško."
-                },
-                {
-                    id: "ex-1-4-4",
-                    type: "matching",
-                    prompt: "Match pairs (Positive vs Negative object)",
-                    options: ["Valgau obuolį", "Nevalgau obuolio", "Matau namą", "Nematau namo"],
-                    correctAnswer: "Valgau obuolį:Nevalgau obuolio,Matau namą:Nematau namo"
-                },
-                {
-                    id: "ex-1-4-5",
-                    type: "fill_in_blank",
-                    prompt: "I didn't hear the song (dainą) = Aš negirdėjau dain____",
-                    correctAnswer: "os",
-                    translation: "I didn't hear the song",
-                    audioText: "Aš negirdėjau dainos."
-                }
-            ]
+          id: "ex-1-1-4",
+          type: "fill_in_blank",
+          prompt: "Good day = Laba ____",
+          correctAnswer: "diena",
+          translation: "Good day",
+          audioText: "Laba diena",
         },
         {
-            id: "lesson-1-5",
-            title: "Story Time",
-            description: "Putting it all together.",
-            exercises: [
-                {
-                    id: "ex-1-5-1",
-                    type: "sentence_arrange",
-                    prompt: "Translate 'Yesterday I went to the shop and bought milk.'",
-                    options: ["Vakar", "ėjau", "į", "parduotuvę", "ir", "nupirkau", "pieno."],
-                    correctAnswer: ["Vakar", "ėjau", "į", "parduotuvę", "ir", "nupirkau", "pieno."],
-                    audioText: "Vakar ėjau į parduotuvę ir nupirkau pieno."
-                },
-                {
-                    id: "ex-1-5-2",
-                    type: "listening",
-                    prompt: "What do you hear?",
-                    options: ["Vakare mes žiūrėjome filmą", "Vakar mes žiūrėjome televizorių", "Rytoj mes žiūrėsime filmą", "Šiandien jis žiūri filmą"],
-                    correctAnswer: "Vakare mes žiūrėjome filmą",
-                    translation: "In the evening we watched a movie",
-                    audioText: "Vakare mes žiūrėjome filmą"
-                },
-                {
-                    id: "ex-1-5-3",
-                    type: "multiple_choice",
-                    prompt: "How do you say 'It was a good day'?",
-                    options: ["Tai buvo gera diena", "Tai yra gera diena", "Tai bus gera diena", "Tai buvo bloga diena"],
-                    correctAnswer: "Tai buvo gera diena",
-                    translation: "It was a good day",
-                    audioText: "Tai buvo gera diena"
-                },
-                {
-                    id: "ex-1-5-4",
-                    type: "matching",
-                    prompt: "Match the verbs",
-                    options: ["Buvau", "I was", "Ėjau", "I went", "Mačiau", "I saw"],
-                    correctAnswer: "Buvau:I was,Ėjau:I went,Mačiau:I saw"
-                },
-                {
-                    id: "ex-1-5-5",
-                    type: "fill_in_blank",
-                    prompt: "And what did you do? = O ką tu veike____?",
-                    correctAnswer: "i",
-                    translation: "And what did you do?",
-                    audioText: "O ką tu veikei?"
-                }
-            ]
-        }
-    ]
+          id: "ex-1-1-5",
+          type: "multiple_choice",
+          prompt: "How do you say 'Goodbye' in Lithuanian?",
+          options: ["Labas", "Iki", "Viso gero", "Taip"],
+          correctAnswer: "Viso gero",
+          translation: "Goodbye",
+          audioText: "Viso gero",
+        },
+      ],
+    },
+    {
+      id: "lesson-1-2",
+      title: "Polite Words",
+      description: "Thank you, please, sorry, yes, no.",
+      exercises: [
+        {
+          id: "ex-1-2-1",
+          type: "multiple_choice",
+          prompt: "How do you say 'Thank you' in Lithuanian?",
+          options: ["Prašau", "Ačiū", "Atsiprašau", "Gerai"],
+          correctAnswer: "Ačiū",
+          translation: "Thank you",
+          audioText: "Ačiū",
+        },
+        {
+          id: "ex-1-2-2",
+          type: "matching",
+          prompt: "Match the words with their meanings",
+          options: ["Taip", "Yes", "Ne", "No", "Prašau", "Please"],
+          correctAnswer: "Taip:Yes,Ne:No,Prašau:Please",
+          audioText: "Taip. Ne. Prašau.",
+        },
+        {
+          id: "ex-1-2-3",
+          type: "fill_in_blank",
+          prompt: "Sorry / Excuse me = Atsi____",
+          correctAnswer: "prašau",
+          translation: "Sorry",
+          audioText: "Atsiprašau",
+        },
+        {
+          id: "ex-1-2-4",
+          type: "listening",
+          prompt: "What word do you hear?",
+          options: ["Ačiū", "Prašau", "Atsiprašau", "Taip"],
+          correctAnswer: "Prašau",
+          audioText: "Prašau",
+        },
+        {
+          id: "ex-1-2-5",
+          type: "sentence_arrange",
+          prompt: "Say 'Yes, thank you please'",
+          options: ["Taip", "ačiū", "prašau", "ne", "iki"],
+          correctAnswer: ["Taip", "ačiū", "prašau"],
+          translation: "Yes, thank you please",
+          audioText: "Taip, ačiū, prašau.",
+        },
+      ],
+    },
+    {
+      id: "lesson-1-3",
+      title: "How Are You?",
+      description: "Ask how someone is doing and respond.",
+      exercises: [
+        {
+          id: "ex-1-3-1",
+          type: "multiple_choice",
+          prompt: "How do you ask 'How are you?' in Lithuanian?",
+          options: ["Kaip sekasi?", "Kas tu?", "Kur eini?", "Ką darai?"],
+          correctAnswer: "Kaip sekasi?",
+          translation: "How are you?",
+          audioText: "Kaip sekasi?",
+        },
+        {
+          id: "ex-1-3-2",
+          type: "matching",
+          prompt: "Match the responses",
+          options: ["Puikiai", "Great", "Gerai", "Good", "Blogai", "Bad"],
+          correctAnswer: "Puikiai:Great,Gerai:Good,Blogai:Bad",
+          audioText: "Puikiai. Gerai. Blogai.",
+        },
+        {
+          id: "ex-1-3-3",
+          type: "fill_in_blank",
+          prompt: "'Not bad' in Lithuanian: Ne____",
+          correctAnswer: "blogai",
+          translation: "Not bad",
+          audioText: "Neblogai",
+        },
+        {
+          id: "ex-1-3-4",
+          type: "listening",
+          prompt: "How does this person feel?",
+          options: ["Puikiai (Great)", "Gerai (Good)", "Neblogai (Not bad)", "Blogai (Bad)"],
+          correctAnswer: "Puikiai (Great)",
+          audioText: "Puikiai!",
+        },
+        {
+          id: "ex-1-3-5",
+          type: "sentence_arrange",
+          prompt: "Ask 'How are you?' and respond 'Good, thank you'",
+          options: ["Kaip", "sekasi?", "Gerai,", "ačiū.", "blogai", "ne"],
+          correctAnswer: ["Kaip", "sekasi?", "Gerai,", "ačiū."],
+          translation: "How are you? Good, thank you.",
+          audioText: "Kaip sekasi? Gerai, ačiū.",
+        },
+      ],
+    },
+    {
+      id: "lesson-1-4",
+      title: "My Name Is...",
+      description: "Introduce yourself in Lithuanian.",
+      exercises: [
+        {
+          id: "ex-1-4-1",
+          type: "multiple_choice",
+          prompt: "How do you say 'My name is...' in Lithuanian?",
+          options: ["Mano vardas yra...", "Aš noriu...", "Man patinka...", "Aš esu iš..."],
+          correctAnswer: "Mano vardas yra...",
+          translation: "My name is...",
+          audioText: "Mano vardas yra Jonas.",
+        },
+        {
+          id: "ex-1-4-2",
+          type: "fill_in_blank",
+          prompt: "I am = Aš ____",
+          correctAnswer: "esu",
+          translation: "I am",
+          audioText: "Aš esu",
+        },
+        {
+          id: "ex-1-4-3",
+          type: "listening",
+          prompt: "What is this person saying?",
+          options: ["Aš esu Jonas", "Mano vardas yra Jonas", "Labas, Jonas", "Iki, Jonas"],
+          correctAnswer: "Mano vardas yra Jonas",
+          audioText: "Mano vardas yra Jonas",
+        },
+        {
+          id: "ex-1-4-4",
+          type: "multiple_choice",
+          prompt: "'Nice to meet you' in Lithuanian is:",
+          options: ["Malonu susipažinti", "Kaip sekasi", "Ačiū labai", "Viso gero"],
+          correctAnswer: "Malonu susipažinti",
+          translation: "Nice to meet you",
+          audioText: "Malonu susipažinti",
+        },
+        {
+          id: "ex-1-4-5",
+          type: "sentence_arrange",
+          prompt: "Say 'Hello, my name is Jonas'",
+          options: ["Labas,", "mano", "vardas", "yra", "Jonas.", "iki", "ačiū"],
+          correctAnswer: ["Labas,", "mano", "vardas", "yra", "Jonas."],
+          translation: "Hello, my name is Jonas",
+          audioText: "Labas, mano vardas yra Jonas.",
+        },
+      ],
+    },
+    {
+      id: "lesson-1-5",
+      title: "First Conversation",
+      description: "Put it all together: greet, introduce, ask how someone is.",
+      exercises: [
+        {
+          id: "ex-1-5-1",
+          type: "sentence_arrange",
+          prompt: "Build: 'Good morning! How are you?'",
+          options: ["Labas", "rytas!", "Kaip", "sekasi?", "vakaras!", "ačiū"],
+          correctAnswer: ["Labas", "rytas!", "Kaip", "sekasi?"],
+          translation: "Good morning! How are you?",
+          audioText: "Labas rytas! Kaip sekasi?",
+        },
+        {
+          id: "ex-1-5-2",
+          type: "matching",
+          prompt: "Match the conversation parts",
+          options: ["Labas!", "Hello!", "Kaip sekasi?", "How are you?", "Malonu!", "Nice to meet you!"],
+          correctAnswer: "Labas!:Hello!,Kaip sekasi?:How are you?,Malonu!:Nice to meet you!",
+          audioText: "Labas! Kaip sekasi? Malonu!",
+        },
+        {
+          id: "ex-1-5-3",
+          type: "fill_in_blank",
+          prompt: "And you? = O ____?",
+          correctAnswer: "tu",
+          translation: "And you?",
+          audioText: "O tu?",
+        },
+        {
+          id: "ex-1-5-4",
+          type: "listening",
+          prompt: "What is this person saying?",
+          options: ["Labas, aš esu Rasa. Malonu!", "Iki, viso gero!", "Ačiū, prašau!", "Kaip sekasi? Blogai."],
+          correctAnswer: "Labas, aš esu Rasa. Malonu!",
+          audioText: "Labas, aš esu Rasa. Malonu!",
+        },
+        {
+          id: "ex-1-5-5",
+          type: "sentence_arrange",
+          prompt: "Say: 'Hello! I am Rasa. Nice to meet you!'",
+          options: ["Labas!", "Aš", "esu", "Rasa.", "Malonu", "susipažinti!", "Iki", "ačiū"],
+          correctAnswer: ["Labas!", "Aš", "esu", "Rasa.", "Malonu", "susipažinti!"],
+          translation: "Hello! I am Rasa. Nice to meet you!",
+          audioText: "Labas! Aš esu Rasa. Malonu susipažinti!",
+        },
+      ],
+    },
+  ],
 };

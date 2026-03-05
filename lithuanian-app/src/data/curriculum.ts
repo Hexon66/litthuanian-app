@@ -4,8 +4,6 @@ import { unit3 } from "./units/unit3";
 import { unit4 } from "./units/unit4";
 import { unit5 } from "./units/unit5";
 import { unit6 } from "./units/unit6";
-import { unit7 } from "./units/unit7";
-import { unit8 } from "./units/unit8";
 
 export type ExerciseType = 'multiple_choice' | 'fill_in_blank' | 'matching' | 'listening' | 'sentence_arrange';
 
@@ -13,10 +11,10 @@ export interface Exercise {
     id: string;
     type: ExerciseType;
     prompt: string;
-    options?: string[]; // For multiple choice, matching, sentence arrange
-    correctAnswer: string | string[]; // Can be an array for sentence arrange
+    options?: string[];
+    correctAnswer: string | string[];
     translation?: string;
-    audioText?: string; // The text to be synthesized
+    audioText?: string;
 }
 
 export interface Lesson {
@@ -26,11 +24,27 @@ export interface Lesson {
     exercises: Exercise[];
 }
 
+export interface GrammarTip {
+    title: string;
+    explanation: string;
+    examples: { lithuanian: string; english: string }[];
+}
+
+export interface VocabWord {
+    lithuanian: string;
+    english: string;
+    gender?: "m" | "f" | "n";
+    audioText?: string;
+}
+
 export interface Unit {
     id: string;
     title: string;
     description: string;
+    icon?: string;
     lessons: Lesson[];
+    grammarTips?: GrammarTip[];
+    keyVocabulary?: VocabWord[];
 }
 
 export const curriculum: Unit[] = [
@@ -40,6 +54,4 @@ export const curriculum: Unit[] = [
     unit4,
     unit5,
     unit6,
-    unit7,
-    unit8
 ];

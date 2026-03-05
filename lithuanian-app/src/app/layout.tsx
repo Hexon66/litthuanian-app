@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import FloatingBackground from "@/components/FloatingBackground";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -24,11 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${plusJakartaSans.variable} antialiased`}
-      >
-        <div className="max-w-md mx-auto min-h-screen bg-white shadow-xl overflow-hidden relative">
-          {children}
+      <body className={`${plusJakartaSans.variable} antialiased`}>
+        <div className="max-w-md mx-auto min-h-screen gradient-main shadow-xl overflow-hidden relative">
+          <FloatingBackground />
+          <div className="relative z-10">
+            {children}
+          </div>
         </div>
       </body>
     </html>

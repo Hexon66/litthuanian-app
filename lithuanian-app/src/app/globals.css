@@ -1,17 +1,30 @@
 @import "tailwindcss";
 
 @theme {
+  --color-brand-green-50: #f0fdf4;
   --color-brand-green-100: #dcfce7;
+  --color-brand-green-200: #bbf7d0;
   --color-brand-green-500: #22c55e;
   --color-brand-green-600: #16a34a;
   --color-brand-green-700: #15803d;
 
+  --color-brand-gold-50: #fffbeb;
   --color-brand-gold-100: #fef9c3;
   --color-brand-gold-400: #facc15;
   --color-brand-gold-500: #eab308;
+  --color-brand-gold-700: #a16207;
 
+  --color-brand-red-50: #fef2f2;
   --color-brand-red-100: #fee2e2;
   --color-brand-red-500: #ef4444;
+  --color-brand-red-600: #dc2626;
+
+  --color-brand-blue-50: #eff6ff;
+  --color-brand-blue-100: #dbeafe;
+  --color-brand-blue-500: #3b82f6;
+
+  --color-brand-purple-50: #faf5ff;
+  --color-brand-purple-500: #8b5cf6;
 
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
@@ -22,7 +35,38 @@
   }
 }
 
-/* Custom Components for Duolingo-style buttons */
+/* === Utility classes === */
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .card-elevated {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    border-radius: 1rem;
+  }
+
+  .gradient-main {
+    background: linear-gradient(135deg, #e0f2fe 0%, #dcfce7 40%, #fef9c3 100%);
+  }
+
+  .gradient-lesson {
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #fef9c3 0%, #fde68a 100%);
+  }
+
+  .gradient-fire {
+    background: linear-gradient(135deg, #fde68a 0%, #fb923c 50%, #ef4444 100%);
+  }
+}
+
+/* === Duolingo-style pushable buttons === */
 @layer components {
   .btn-pushable {
     @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none;
@@ -42,5 +86,70 @@
 
   .btn-outline-selected {
     @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-blue-50 text-blue-500 font-bold rounded-xl border-2 border-blue-200 border-b-4;
+  }
+
+  .btn-red {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-red-500 text-white font-bold rounded-xl border-b-4 border-brand-red-600 hover:bg-red-600;
+  }
+}
+
+/* === Keyframe animations === */
+@keyframes float-up {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-60px) scale(1.2); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.7); }
+}
+
+@keyframes gold-shimmer {
+  0%, 100% { box-shadow: 0 0 8px rgba(234, 179, 8, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(234, 179, 8, 0.6); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); }
+  30% { transform: translateX(8px); }
+  45% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  75% { transform: translateX(-2px); }
+  90% { transform: translateX(2px); }
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -15px) scale(1.05); }
+  50% { transform: translate(-5px, 10px) scale(0.95); }
+  75% { transform: translate(-10px, -5px) scale(1.02); }
+}
+
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes wave-bar {
+  0%, 100% { height: 8px; }
+  50% { height: 24px; }
+}
+
+@layer utilities {
+  .animate-float-up {
+    animation: float-up 0.8s ease-out forwards;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .animate-gold-shimmer {
+    animation: gold-shimmer 2s ease-in-out infinite;
+  }
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  .animate-heart-pulse {
+    animation: heart-pulse 0.3s ease-in-out;
   }
 }
