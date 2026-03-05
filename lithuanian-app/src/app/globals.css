@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green-100: #dcfce7;
+  --color-brand-green-500: #22c55e;
+  --color-brand-green-600: #16a34a;
+  --color-brand-green-700: #15803d;
+
+  --color-brand-gold-100: #fef9c3;
+  --color-brand-gold-400: #facc15;
+  --color-brand-gold-500: #eab308;
+
+  --color-brand-red-100: #fee2e2;
+  --color-brand-red-500: #ef4444;
+
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-900 font-sans antialiased;
+  }
+}
+
+/* Custom Components for Duolingo-style buttons */
+@layer components {
+  .btn-pushable {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none;
+  }
+
+  .btn-green {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-green-500 text-white font-bold rounded-xl border-b-4 border-brand-green-700 hover:bg-brand-green-600;
+  }
+
+  .btn-gold {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-gold-400 text-zinc-900 font-bold rounded-xl border-b-4 border-brand-gold-500 hover:bg-yellow-400;
+  }
+
+  .btn-outline {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-white text-zinc-700 font-bold rounded-xl border-2 border-zinc-200 border-b-4 hover:bg-zinc-50 hover:border-zinc-300;
+  }
+
+  .btn-outline-selected {
+    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-blue-50 text-blue-500 font-bold rounded-xl border-2 border-blue-200 border-b-4;
+  }
+}
