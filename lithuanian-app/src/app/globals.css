@@ -1,96 +1,175 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-green-50: #f0fdf4;
-  --color-brand-green-100: #dcfce7;
-  --color-brand-green-200: #bbf7d0;
-  --color-brand-green-500: #22c55e;
-  --color-brand-green-600: #16a34a;
-  --color-brand-green-700: #15803d;
+  /* Dark futuristic palette */
+  --color-bg: #0e0f0e;
+  --color-surface: #161816;
+  --color-surface-light: #1e201e;
+  --color-border: #2a2d2a;
+  --color-border-light: #3a3d3a;
+  --color-accent: #c8f53a;
+  --color-accent-dim: #9ec22e;
+  --color-accent2: #f5a623;
+  --color-accent2-dim: #c4851c;
+  --color-text: #e8ead8;
+  --color-text-dim: #b8baa8;
+  --color-muted: #6b6f5e;
+  --color-success: #5ef252;
+  --color-error: #f25353;
 
-  --color-brand-gold-50: #fffbeb;
-  --color-brand-gold-100: #fef9c3;
-  --color-brand-gold-400: #facc15;
-  --color-brand-gold-500: #eab308;
-  --color-brand-gold-700: #a16207;
-
-  --color-brand-red-50: #fef2f2;
-  --color-brand-red-100: #fee2e2;
-  --color-brand-red-500: #ef4444;
-  --color-brand-red-600: #dc2626;
-
-  --color-brand-blue-50: #eff6ff;
-  --color-brand-blue-100: #dbeafe;
-  --color-brand-blue-500: #3b82f6;
-
-  --color-brand-purple-50: #faf5ff;
-  --color-brand-purple-500: #8b5cf6;
-
-  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-playfair-display), Georgia, serif;
 }
 
 @layer base {
   body {
-    @apply bg-zinc-50 text-zinc-900 font-sans antialiased;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
   }
 }
 
 /* === Utility classes === */
 @layer components {
-  .glass {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
   }
 
-  .card-elevated {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    border-radius: 1rem;
+  .card-accent {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 4px;
   }
 
-  .gradient-main {
-    background: linear-gradient(135deg, #e0f2fe 0%, #dcfce7 40%, #fef9c3 100%);
-  }
-
-  .gradient-lesson {
-    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
-  }
-
-  .gradient-gold {
-    background: linear-gradient(135deg, #fef9c3 0%, #fde68a 100%);
-  }
-
-  .gradient-fire {
-    background: linear-gradient(135deg, #fde68a 0%, #fb923c 50%, #ef4444 100%);
+  .card-accent2 {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent2);
+    border-radius: 4px;
   }
 }
 
-/* === Duolingo-style pushable buttons === */
+/* === Buttons === */
 @layer components {
-  .btn-pushable {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none;
+  .btn-accent {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.75rem 2rem;
   }
+  .btn-accent:hover { opacity: 0.85; }
+  .btn-accent:disabled { opacity: 0.4; cursor: default; }
+
+  .btn-accent2 {
+    background: var(--color-accent2);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.75rem 2rem;
+  }
+  .btn-accent2:hover { opacity: 0.85; }
+
+  .btn-outline-dark {
+    background: transparent;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.2s;
+  }
+  .btn-outline-dark:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .btn-outline-dark.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .btn-error {
+    background: var(--color-error);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.75rem 2rem;
+  }
+  .btn-error:hover { opacity: 0.85; }
 
   .btn-green {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-green-500 text-white font-bold rounded-xl border-b-4 border-brand-green-700 hover:bg-brand-green-600;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.75rem 2rem;
   }
-
-  .btn-gold {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-gold-400 text-zinc-900 font-bold rounded-xl border-b-4 border-brand-gold-500 hover:bg-yellow-400;
-  }
-
-  .btn-outline {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-white text-zinc-700 font-bold rounded-xl border-2 border-zinc-200 border-b-4 hover:bg-zinc-50 hover:border-zinc-300;
-  }
-
-  .btn-outline-selected {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-blue-50 text-blue-500 font-bold rounded-xl border-2 border-blue-200 border-b-4;
-  }
+  .btn-green:hover { opacity: 0.85; }
+  .btn-green:disabled { opacity: 0.4; cursor: default; }
 
   .btn-red {
-    @apply relative active:translate-y-1 active:border-b-0 transition-all duration-100 select-none bg-brand-red-500 text-white font-bold rounded-xl border-b-4 border-brand-red-600 hover:bg-red-600;
+    background: var(--color-error);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.75rem 2rem;
   }
+  .btn-red:hover { opacity: 0.85; }
 }
 
 /* === Keyframe animations === */
@@ -100,13 +179,13 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
-  50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.7); }
+  0%, 100% { box-shadow: 0 0 8px rgba(200, 245, 58, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(200, 245, 58, 0.6); }
 }
 
 @keyframes gold-shimmer {
-  0%, 100% { box-shadow: 0 0 8px rgba(234, 179, 8, 0.3); }
-  50% { box-shadow: 0 0 16px rgba(234, 179, 8, 0.6); }
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 166, 35, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(245, 166, 35, 0.6); }
 }
 
 @keyframes shake {
@@ -117,13 +196,6 @@
   60% { transform: translateX(5px); }
   75% { transform: translateX(-2px); }
   90% { transform: translateX(2px); }
-}
-
-@keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(10px, -15px) scale(1.05); }
-  50% { transform: translate(-5px, 10px) scale(0.95); }
-  75% { transform: translate(-10px, -5px) scale(1.02); }
 }
 
 @keyframes heart-pulse {

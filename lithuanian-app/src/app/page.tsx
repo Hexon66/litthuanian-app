@@ -31,27 +31,29 @@ export default function Home() {
       <StreakCelebration streak={streak} />
 
       {/* Header */}
-      <header className="sticky top-0 z-10 glass border-b border-white/30 px-4 py-3">
+      <header className="sticky top-0 z-10 bg-surface border-b border-border px-4 py-3">
         <div className="flex items-center justify-between">
-          <div className="font-extrabold text-xl">
-            <span className="text-brand-green-600">LT</span>
-            <span className="text-zinc-800">Go</span>
+          <div>
+            <h1 className="font-display text-2xl font-bold bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">
+              Lietuvi&#371;
+            </h1>
+            <p className="text-muted text-[10px] uppercase tracking-[0.15em]">Lithuanian — Fast Track</p>
           </div>
-          <div className="flex items-center gap-4 font-bold text-sm">
+          <div className="flex items-center gap-4 text-xs font-semibold">
             <motion.div
-              className="flex items-center gap-1 text-orange-500"
+              className="flex items-center gap-1 text-accent2"
               animate={streak > 0 ? { scale: [1, 1.1, 1] } : {}}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <Flame className="w-5 h-5 fill-orange-500" />
+              <Flame className="w-4 h-4" />
               <span>{streak}</span>
             </motion.div>
-            <div className="flex items-center gap-1 text-brand-gold-500">
-              <Star className="w-5 h-5 fill-brand-gold-500" />
+            <div className="flex items-center gap-1 text-accent">
+              <Star className="w-4 h-4" />
               <span>{xp}</span>
             </div>
-            <div className="flex items-center gap-1 text-brand-red-500">
-              <Heart className="w-5 h-5 fill-brand-red-500" />
+            <div className="flex items-center gap-1 text-error">
+              <Heart className="w-4 h-4 fill-error" />
               <span>{hearts}</span>
             </div>
           </div>
@@ -59,20 +61,20 @@ export default function Home() {
       </header>
 
       <AnimatedPage>
-        <main className="flex-1 p-4 space-y-10 mt-4">
+        <main className="flex-1 p-4 space-y-8 mt-2">
           {/* Welcome tip for new users */}
           {completedCount === 0 && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="glass card-elevated p-4 flex items-center gap-3"
+              className="card-accent p-4 flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-full bg-brand-green-100 flex items-center justify-center shrink-0">
-                <Zap className="w-5 h-5 text-brand-green-600" />
+              <div className="w-10 h-10 rounded-sm bg-accent/10 flex items-center justify-center shrink-0">
+                <Zap className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <p className="font-bold text-zinc-800 text-sm">Welcome to LithuanianGo!</p>
-                <p className="text-zinc-500 text-xs">Start your first lesson below</p>
+                <p className="font-semibold text-text text-sm">Welcome to Lietuvi&#371;!</p>
+                <p className="text-muted text-xs">Start your first lesson below</p>
               </div>
             </motion.div>
           )}
@@ -86,16 +88,16 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="glass card-elevated p-4 flex items-center gap-3 hover:shadow-md transition-shadow"
+                className="card-accent2 p-4 flex items-center gap-3 hover:border-accent2 transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-purple-50 flex items-center justify-center shrink-0">
-                  <RotateCcw className="w-5 h-5 text-brand-purple-500" />
+                <div className="w-10 h-10 rounded-sm bg-accent2/10 flex items-center justify-center shrink-0">
+                  <RotateCcw className="w-5 h-5 text-accent2" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold text-zinc-800 text-sm">Words to Review</p>
-                  <p className="text-zinc-500 text-xs">{dueReviewCount} word{dueReviewCount !== 1 ? "s" : ""} due today</p>
+                  <p className="font-semibold text-text text-sm">Words to Review</p>
+                  <p className="text-muted text-xs">{dueReviewCount} word{dueReviewCount !== 1 ? "s" : ""} due today</p>
                 </div>
-                <span className="text-brand-purple-500 font-bold text-sm">Go →</span>
+                <span className="text-accent2 font-semibold text-xs uppercase tracking-wider">Go &rarr;</span>
               </motion.div>
             </Link>
           )}
@@ -112,30 +114,31 @@ export default function Home() {
             >
               {/* Unit header card */}
               <Link href={`/unit/${unit.id}`}>
-                <div className="bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <div className="card p-4 hover:border-accent transition-colors cursor-pointer group">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-2xl">{unit.icon || "📚"}</span>
-                    <h2 className="text-lg font-bold">{unit.title}</h2>
+                    <span className="text-2xl">{unit.icon || "\u{1F4DA}"}</span>
+                    <div>
+                      <h2 className="font-display text-lg font-bold text-accent">{unit.title}</h2>
+                      <p className="text-muted text-xs">{unit.description}</p>
+                    </div>
                   </div>
-                  <p className="opacity-80 text-sm">{unit.description}</p>
                 </div>
               </Link>
 
               {/* Lesson path */}
               <div className="flex flex-col items-center gap-5 py-2 relative">
                 {unit.lessons.length > 1 && (
-                  <div className="absolute top-8 bottom-8 w-1 bg-zinc-200/60 -z-10 rounded-full" />
+                  <div className="absolute top-8 bottom-8 w-px bg-border -z-10" />
                 )}
 
                 {unit.lessons.length === 0 && (
-                  <div className="text-zinc-400 italic font-medium py-4">Coming soon...</div>
+                  <div className="text-muted italic font-medium py-4">Coming soon...</div>
                 )}
 
                 {unit.lessons.map((lesson, lessonIndex) => {
                   const shiftX = lessonIndex % 2 === 0 ? 0 : lessonIndex % 4 === 1 ? -32 : 32;
                   const isCompleted = progress?.completedLessons.includes(lesson.id);
 
-                  // Determine if this is the next available lesson
                   const prevLessonId = lessonIndex > 0 ? unit.lessons[lessonIndex - 1].id : null;
                   const prevUnitLastLesson = unitIndex > 0 ? curriculum[unitIndex - 1].lessons[curriculum[unitIndex - 1].lessons.length - 1]?.id : null;
                   const isFirstEver = unitIndex === 0 && lessonIndex === 0;
@@ -156,24 +159,23 @@ export default function Home() {
                     >
                       <Link href={isLocked ? "#" : `/lesson/${lesson.id}`} onClick={(e) => isLocked && e.preventDefault()}>
                         <div
-                          className={`w-[72px] h-[72px] rounded-full flex items-center justify-center border-b-[6px] transition-all duration-150 relative ${
+                          className={`w-[72px] h-[72px] rounded-full flex items-center justify-center border-2 transition-all duration-150 relative ${
                             isCompleted
-                              ? "bg-brand-gold-400 border-brand-gold-500 text-white shadow-lg animate-gold-shimmer"
+                              ? "bg-accent2/20 border-accent2 text-accent2 animate-gold-shimmer"
                               : isCurrent
-                              ? "bg-brand-green-500 border-brand-green-700 text-white shadow-lg animate-pulse-glow"
-                              : "bg-zinc-200 border-zinc-300 text-zinc-400 cursor-not-allowed"
+                              ? "bg-accent/20 border-accent text-accent animate-pulse-glow"
+                              : "bg-surface-light border-border text-muted cursor-not-allowed"
                           }`}
                         >
                           {isLocked ? (
                             <Lock className="w-7 h-7" />
                           ) : (
-                            <Star className={`w-8 h-8 ${isCompleted ? "fill-white/40" : "fill-white/30"}`} />
+                            <Star className={`w-8 h-8 ${isCompleted ? "fill-accent2/40" : "fill-accent/30"}`} />
                           )}
-                          {/* Lesson number badge */}
                           <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center ${
-                            isCompleted ? "bg-brand-gold-700 text-white" :
-                            isCurrent ? "bg-brand-green-700 text-white" :
-                            "bg-zinc-300 text-zinc-500"
+                            isCompleted ? "bg-accent2 text-bg" :
+                            isCurrent ? "bg-accent text-bg" :
+                            "bg-surface-light text-muted border border-border"
                           }`}>
                             {lessonIndex + 1}
                           </div>

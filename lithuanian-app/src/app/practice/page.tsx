@@ -74,14 +74,14 @@ export default function PracticePage() {
   return (
     <div className="flex flex-col h-screen max-h-screen relative pb-24">
       {/* Header */}
-      <header className="sticky top-0 z-10 glass border-b border-white/30 px-4 py-3">
+      <header className="sticky top-0 z-10 bg-surface border-b border-border px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Mascot mood="happy" size="sm" />
             <div>
-              <h1 className="font-bold text-lg text-zinc-900 leading-tight">Chat with Rasa</h1>
-              <span className="text-xs text-brand-green-600 font-medium flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-brand-green-500 inline-block" />
+              <h1 className="font-bold text-lg text-text font-display leading-tight">Chat with Rasa</h1>
+              <span className="text-xs text-accent font-medium flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-success inline-block" />
                 Online
               </span>
             </div>
@@ -102,17 +102,17 @@ export default function PracticePage() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-3 shadow-sm relative group ${
+                  className={`max-w-[80%] rounded px-4 py-3 relative group ${
                     msg.role === "user"
-                      ? "bg-brand-green-500 text-white rounded-tr-sm"
-                      : "glass rounded-tl-sm border border-white/50"
+                      ? "bg-accent text-bg"
+                      : "bg-surface border border-border text-text"
                   }`}
                 >
                   <p className="text-base leading-relaxed">{msg.text}</p>
                   {msg.role === "model" && (
                     <button
                       onClick={() => playReading(msg.text)}
-                      className="absolute -right-10 bottom-1 p-2 text-zinc-400 hover:text-brand-green-500 opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+                      className="absolute -right-10 bottom-1 p-2 text-muted hover:text-accent opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                     >
                       <Volume2 className="w-5 h-5" />
                     </button>
@@ -124,11 +124,11 @@ export default function PracticePage() {
 
           {isLoading && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-              <div className="glass rounded-2xl rounded-tl-sm px-4 py-4 border border-white/50 flex gap-1">
+              <div className="bg-surface border border-border rounded px-4 py-4 flex gap-1">
                 {[0, 1, 2].map((i) => (
                   <motion.div
                     key={i}
-                    className="w-2 h-2 rounded-full bg-brand-green-500"
+                    className="w-2 h-2 rounded-full bg-accent"
                     animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.15 }}
                   />
@@ -141,21 +141,21 @@ export default function PracticePage() {
       </AnimatedPage>
 
       {/* Input Area */}
-      <div className="absolute bottom-[72px] left-0 right-0 glass border-t border-white/30 p-3">
+      <div className="absolute bottom-[72px] left-0 right-0 bg-surface border-t border-border p-3">
         <form onSubmit={handleSend} className="flex gap-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type in Lithuanian or English..."
-            className="flex-1 bg-white/80 border border-zinc-200 rounded-full px-5 py-3 outline-none focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-200 transition-all"
+            className="flex-1 bg-bg border border-border rounded px-5 py-3 outline-none focus:border-accent transition-all text-text placeholder:text-muted"
             disabled={isLoading}
           />
           <motion.button
             type="submit"
             disabled={!input.trim() || isLoading}
             whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 shrink-0 bg-brand-green-500 text-white rounded-full flex items-center justify-center disabled:opacity-50 disabled:bg-zinc-300 hover:bg-brand-green-600 transition-all shadow-md"
+            className="w-12 h-12 shrink-0 bg-accent text-bg rounded flex items-center justify-center disabled:opacity-50 disabled:bg-surface-light hover:brightness-110 transition-all"
           >
             <Send className="w-5 h-5 ml-0.5" />
           </motion.button>

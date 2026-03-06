@@ -168,7 +168,7 @@ export default function LessonPage() {
   if (!lesson) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-8 h-8 border-3 border-brand-green-500 border-t-transparent rounded-full" />
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-8 h-8 border-3 border-accent border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -177,26 +177,25 @@ export default function LessonPage() {
     const isPerfect = mistakes === 0;
     return (
       <AnimatedPage className="flex flex-col h-screen min-h-screen items-center justify-center p-6 text-center relative overflow-hidden">
-        <div className="absolute inset-0 gradient-gold opacity-50" />
-        <Confetti width={width} height={height} recycle={false} numberOfPieces={isPerfect ? 500 : 300} colors={isPerfect ? ["#facc15", "#eab308", "#fde68a"] : ["#22c55e", "#eab308", "#3b82f6"]} />
+        <Confetti width={width} height={height} recycle={false} numberOfPieces={isPerfect ? 500 : 300} colors={["#c8f53a", "#f5a623", "#5ef252"]} />
         <div className="relative z-10 flex flex-col items-center">
           <Mascot mood="excited" size="lg" />
-          <motion.h1 initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", delay: 0.2 }} className="text-4xl font-extrabold text-brand-green-700 mt-6 mb-2">
+          <motion.h1 initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", delay: 0.2 }} className="text-4xl font-bold text-accent font-display mt-6 mb-2">
             {isPerfect ? "Perfect!" : "Lesson Complete!"}
           </motion.h1>
           {isPerfect && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-brand-gold-700 font-bold text-lg mb-2">No mistakes!</motion.p>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-accent2 font-bold text-lg mb-2">No mistakes!</motion.p>
           )}
-          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.4 }} className="gradient-gold rounded-full px-8 py-3 shadow-lg border-2 border-brand-gold-400 mb-8">
-            <span className="text-2xl font-extrabold text-brand-gold-700">+15 XP</span>
+          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.4 }} className="bg-surface border-2 border-accent2 rounded px-8 py-3 mb-8">
+            <span className="text-2xl font-bold text-accent2 font-display">+15 XP</span>
           </motion.div>
-          <button onClick={() => router.push("/")} className="btn-green w-full py-4 text-lg">Continue</button>
+          <button onClick={() => router.push("/")} className="btn-accent w-full py-4">Continue</button>
         </div>
       </AnimatedPage>
     );
   }
 
-  if (!exercise) return <div className="flex items-center justify-center h-screen text-zinc-500">No exercises found.</div>;
+  if (!exercise) return <div className="flex items-center justify-center h-screen text-muted">No exercises found.</div>;
 
   const progressPercent = currentExIndex / lesson.exercises.length;
   const hasAnswer = (() => {
@@ -222,8 +221,8 @@ export default function LessonPage() {
       <XPNotification xp={15} show={showXP} onComplete={() => setShowXP(false)} />
 
       {/* Top Bar */}
-      <div className="px-4 py-3 flex items-center gap-3 glass border-b border-white/30">
-        <Link href="/"><button className="text-zinc-400 hover:text-zinc-600 p-1"><ArrowLeft className="w-5 h-5" /></button></Link>
+      <div className="px-4 py-3 flex items-center gap-3 bg-surface border-b border-border">
+        <Link href="/"><button className="text-muted hover:text-text p-1"><ArrowLeft className="w-5 h-5" /></button></Link>
         <div className="flex-1"><ProgressBarAnimated progress={progressPercent} showCelebration={false} /></div>
         <HeartDisplay hearts={hearts} justLost={justLostHeart} />
       </div>
@@ -236,7 +235,7 @@ export default function LessonPage() {
 
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div key={currentExIndex} custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }} className="flex-1 flex flex-col">
-            <h2 className="text-xl font-bold text-zinc-800 mb-5">{exercise.prompt}</h2>
+            <h2 className="text-xl font-bold text-text mb-5">{exercise.prompt}</h2>
 
             {exercise.type === "multiple_choice" && (
               <MultipleChoiceExercise exercise={exercise} selectedOption={selectedOption} isCorrect={isCorrect} onSelect={setSelectedOption} />
@@ -258,14 +257,14 @@ export default function LessonPage() {
       </div>
 
       {/* Bottom Check Bar */}
-      <motion.div animate={{ backgroundColor: isCorrect === true ? "#dcfce7" : isCorrect === false ? "#fee2e2" : "rgba(255,255,255,0.75)" }} className="p-5 border-t border-zinc-200/50 backdrop-blur-sm">
+      <motion.div animate={{ backgroundColor: isCorrect === true ? "rgba(94,242,82,0.08)" : isCorrect === false ? "rgba(242,83,83,0.08)" : "#161816" }} className="p-5 border-t border-border">
         <AnimatePresence>
           {isCorrect !== null && (
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-3 flex items-center font-bold text-lg">
               {isCorrect ? (
-                <span className="text-brand-green-700 flex items-center"><Check className="w-6 h-6 mr-2 bg-brand-green-500 text-white rounded-full p-1" /> Excellent!</span>
+                <span className="text-success flex items-center"><Check className="w-6 h-6 mr-2 bg-success text-bg rounded-full p-1" /> Excellent!</span>
               ) : (
-                <span className="text-red-700 flex items-center"><X className="w-6 h-6 mr-2 bg-brand-red-500 text-white rounded-full p-1" /><span className="truncate">Answer: {getCorrectAnswerDisplay()}</span></span>
+                <span className="text-error flex items-center"><X className="w-6 h-6 mr-2 bg-error text-bg rounded-full p-1" /><span className="truncate">Answer: {getCorrectAnswerDisplay()}</span></span>
               )}
             </motion.div>
           )}
@@ -273,12 +272,12 @@ export default function LessonPage() {
 
         {isCorrect === null ? (
           exercise.type !== "matching" ? (
-            <button onClick={handleCheck} disabled={!hasAnswer} className={`w-full py-4 text-lg rounded-xl font-bold transition-all ${hasAnswer ? "btn-green" : "bg-zinc-200 text-zinc-400"}`}>Check</button>
+            <button onClick={handleCheck} disabled={!hasAnswer} className={`w-full py-4 rounded font-bold transition-all ${hasAnswer ? "btn-accent" : "bg-surface-light text-muted"}`}>Check</button>
           ) : (
-            <div className="text-center text-zinc-500 font-medium py-4">Match all pairs to continue</div>
+            <div className="text-center text-muted font-medium py-4">Match all pairs to continue</div>
           )
         ) : (
-          <button onClick={handleNext} className={`w-full py-4 text-lg text-white font-bold rounded-xl border-b-4 active:translate-y-1 active:border-b-0 transition-all ${isCorrect ? "bg-brand-green-500 border-brand-green-700" : "bg-brand-red-500 border-brand-red-600"}`}>Continue</button>
+          <button onClick={handleNext} className={`w-full py-4 font-bold rounded transition-all ${isCorrect ? "btn-accent" : "btn-error"}`}>Continue</button>
         )}
       </motion.div>
     </div>

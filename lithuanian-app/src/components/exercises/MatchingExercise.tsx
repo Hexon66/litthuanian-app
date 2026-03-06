@@ -28,7 +28,6 @@ export default function MatchingExercise({ matchPairs, matchedPairs, selectedLef
       className="mt-auto space-y-4"
     >
       <div className="grid grid-cols-2 gap-4">
-        {/* Left column */}
         <div className="space-y-3">
           {matchPairs.map((pair) => {
             const matched = isMatched(pair.left, "left");
@@ -40,12 +39,12 @@ export default function MatchingExercise({ matchPairs, matchedPairs, selectedLef
                 whileTap={!matched ? { scale: 0.95 } : {}}
                 animate={matched ? { scale: [1, 1.05, 1] } : {}}
                 transition={{ duration: 0.3 }}
-                className={`w-full py-3 px-4 text-base font-bold rounded-xl border-2 border-b-4 transition-all ${
+                className={`w-full py-3 px-4 text-base font-bold rounded border transition-all ${
                   matched
-                    ? "bg-brand-green-100 border-brand-green-500 text-brand-green-700"
+                    ? "bg-success/10 border-success text-success"
                     : selectedLeft === pair.left
-                    ? "bg-brand-blue-50 border-brand-blue-500 text-blue-700 shadow-md"
-                    : "bg-white border-zinc-200 text-zinc-700 hover:border-zinc-300"
+                    ? "bg-accent/10 border-accent text-accent"
+                    : "bg-bg border-border text-text hover:border-accent"
                 }`}
               >
                 {pair.left}
@@ -54,7 +53,6 @@ export default function MatchingExercise({ matchPairs, matchedPairs, selectedLef
           })}
         </div>
 
-        {/* Right column */}
         <div className="space-y-3">
           {matchPairs.map((pair) => {
             const matched = isMatched(pair.right, "right");
@@ -66,12 +64,12 @@ export default function MatchingExercise({ matchPairs, matchedPairs, selectedLef
                 whileTap={selectedLeft && !matched ? { scale: 0.95 } : {}}
                 animate={matched ? { scale: [1, 1.05, 1] } : {}}
                 transition={{ duration: 0.3 }}
-                className={`w-full py-3 px-4 text-base font-bold rounded-xl border-2 border-b-4 transition-all ${
+                className={`w-full py-3 px-4 text-base font-bold rounded border transition-all ${
                   matched
-                    ? "bg-brand-green-100 border-brand-green-500 text-brand-green-700"
+                    ? "bg-success/10 border-success text-success"
                     : selectedLeft
-                    ? "bg-white border-zinc-200 text-zinc-700 hover:border-brand-blue-500 hover:bg-brand-blue-50"
-                    : "bg-white border-zinc-200 text-zinc-400"
+                    ? "bg-bg border-border text-text hover:border-accent"
+                    : "bg-bg border-border text-muted"
                 }`}
               >
                 {pair.right}

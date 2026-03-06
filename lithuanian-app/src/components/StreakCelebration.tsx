@@ -29,7 +29,7 @@ export default function StreakCelebration({ streak }: StreakCelebrationProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
           onClick={() => setShow(false)}
         >
           <motion.div
@@ -37,17 +37,17 @@ export default function StreakCelebration({ streak }: StreakCelebrationProps) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", damping: 15 }}
-            className="gradient-fire rounded-3xl p-8 text-center shadow-2xl mx-4"
+            className="bg-surface border border-accent2 rounded p-8 text-center shadow-2xl mx-4"
             onClick={(e) => e.stopPropagation()}
           >
             <motion.div
               animate={{ scale: [1, 1.2, 1], rotate: [0, -5, 5, 0] }}
               transition={{ duration: 0.6, repeat: 2 }}
             >
-              <Flame className="w-16 h-16 text-white mx-auto mb-3 drop-shadow-lg" />
+              <Flame className="w-16 h-16 text-accent2 mx-auto mb-3" />
             </motion.div>
-            <p className="text-4xl font-extrabold text-white mb-1">{streak} Day Streak!</p>
-            <p className="text-white/80 text-lg font-medium">Keep it up!</p>
+            <p className="text-4xl font-bold text-accent2 font-display mb-1">{streak} Day Streak!</p>
+            <p className="text-muted text-lg font-medium">Keep it up!</p>
           </motion.div>
         </motion.div>
       )}

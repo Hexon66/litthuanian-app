@@ -1,21 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Playfair_Display, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import FloatingBackground from "@/components/FloatingBackground";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin", "latin-ext"],
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "LithuanianGo | Learn Lithuanian",
+  title: "Lietuvi\u0173 | Learn Lithuanian Fast",
   description: "Learn Lithuanian fast in a fun, gamified way with native pronunciation and AI conversation.",
   manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#22c55e",
+  themeColor: "#0e0f0e",
 };
 
 export default function RootLayout({
@@ -25,12 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} antialiased`}>
-        <div className="max-w-md mx-auto min-h-screen gradient-main shadow-xl overflow-hidden relative">
-          <FloatingBackground />
-          <div className="relative z-10">
-            {children}
-          </div>
+      <body className={`${playfairDisplay.variable} ${ibmPlexMono.variable}`}>
+        <div className="max-w-md mx-auto min-h-screen relative z-[1]">
+          {children}
         </div>
       </body>
     </html>

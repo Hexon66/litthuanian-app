@@ -19,20 +19,19 @@ export default function SentenceArrangeExercise({ options, arrangedWords, isCorr
       animate={{ opacity: 1, y: 0 }}
       className="mt-auto space-y-6"
     >
-      {/* Arranged sentence area */}
       <motion.div
         animate={
           isCorrect === false ? { x: [0, -8, 8, -5, 5, 0] } : {}
         }
         transition={{ duration: 0.4 }}
-        className={`min-h-[70px] border-2 border-dashed rounded-xl p-3 flex flex-wrap gap-2 ${
-          isCorrect === true ? "border-brand-green-500 bg-brand-green-50" :
-          isCorrect === false ? "border-brand-red-500 bg-brand-red-50" :
-          "border-zinc-300 bg-white/60"
+        className={`min-h-[70px] border-2 border-dashed rounded p-3 flex flex-wrap gap-2 ${
+          isCorrect === true ? "border-success bg-success/5" :
+          isCorrect === false ? "border-error bg-error/5" :
+          "border-border bg-surface-light"
         }`}
       >
         {arrangedWords.length === 0 && (
-          <span className="text-zinc-400 text-sm py-2">Tap words below to build the sentence...</span>
+          <span className="text-muted text-sm py-2">Tap words below to build the sentence...</span>
         )}
         <AnimatePresence>
           {arrangedWords.map((word, i) => (
@@ -47,12 +46,12 @@ export default function SentenceArrangeExercise({ options, arrangedWords, isCorr
                 if (isCorrect !== null) return;
                 onRemoveWord(i);
               }}
-              className={`px-4 py-2 rounded-lg font-bold text-base border-b-4 transition-colors ${
+              className={`px-4 py-2 rounded font-bold text-base border transition-colors ${
                 isCorrect === true
-                  ? "bg-brand-green-100 border-brand-green-500 text-brand-green-700"
+                  ? "bg-success/10 border-success text-success"
                   : isCorrect === false
-                  ? "bg-brand-red-50 border-brand-red-500 text-red-700"
-                  : "bg-brand-blue-50 border-brand-blue-500 text-blue-700"
+                  ? "bg-error/10 border-error text-error"
+                  : "bg-accent/10 border-accent text-accent"
               }`}
             >
               {word}
@@ -61,7 +60,6 @@ export default function SentenceArrangeExercise({ options, arrangedWords, isCorr
         </AnimatePresence>
       </motion.div>
 
-      {/* Available words */}
       <div className="flex flex-wrap gap-2 justify-center">
         <AnimatePresence>
           {availableWords.map((word) => (
@@ -76,7 +74,7 @@ export default function SentenceArrangeExercise({ options, arrangedWords, isCorr
                 if (isCorrect !== null) return;
                 onAddWord(word);
               }}
-              className="btn-outline px-4 py-2 text-base"
+              className="btn-outline-dark px-4 py-2 text-base"
             >
               {word}
             </motion.button>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, RotateCcw, Check, X } from "lucide-react";
+import { ArrowLeft, Check, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AnimatedPage from "@/components/AnimatedPage";
@@ -44,9 +44,9 @@ export default function ReviewPage() {
     return (
       <AnimatedPage className="flex flex-col h-screen items-center justify-center p-6 text-center">
         <Mascot mood="happy" size="lg" />
-        <h1 className="text-2xl font-extrabold text-zinc-800 mt-6 mb-2">All Caught Up!</h1>
-        <p className="text-zinc-500 mb-6">No words to review right now. Come back later!</p>
-        <button onClick={() => router.push("/")} className="btn-green px-8 py-3 text-lg">
+        <h1 className="text-2xl font-extrabold text-text font-display mt-6 mb-2">All Caught Up!</h1>
+        <p className="text-muted mb-6">No words to review right now. Come back later!</p>
+        <button onClick={() => router.push("/")} className="btn-accent px-8 py-3 text-lg">
           Back to Learn
         </button>
       </AnimatedPage>
@@ -58,12 +58,12 @@ export default function ReviewPage() {
     return (
       <AnimatedPage className="flex flex-col h-screen items-center justify-center p-6 text-center">
         <Mascot mood={pct >= 80 ? "excited" : "happy"} size="lg" />
-        <h1 className="text-3xl font-extrabold text-zinc-800 mt-6 mb-2">Review Done!</h1>
-        <p className="text-zinc-500 mb-2">{correctCount}/{items.length} correct ({pct}%)</p>
+        <h1 className="text-3xl font-extrabold text-text font-display mt-6 mb-2">Review Done!</h1>
+        <p className="text-muted mb-2">{correctCount}/{items.length} correct ({pct}%)</p>
         <div className="w-48 mb-6">
           <ProgressBarAnimated progress={pct / 100} />
         </div>
-        <button onClick={() => router.push("/")} className="btn-green px-8 py-3 text-lg">
+        <button onClick={() => router.push("/")} className="btn-accent px-8 py-3 text-lg">
           Continue
         </button>
       </AnimatedPage>
@@ -73,21 +73,21 @@ export default function ReviewPage() {
   return (
     <div className="flex flex-col h-screen min-h-screen">
       {/* Top bar */}
-      <div className="px-4 py-3 flex items-center gap-3 glass border-b border-white/30">
+      <div className="px-4 py-3 flex items-center gap-3 bg-surface border-b border-border">
         <Link href="/">
-          <button className="text-zinc-400 hover:text-zinc-600 p-1">
+          <button className="text-muted hover:text-text p-1">
             <ArrowLeft className="w-5 h-5" />
           </button>
         </Link>
         <div className="flex-1">
           <ProgressBarAnimated progress={progress} showCelebration={false} />
         </div>
-        <span className="text-xs font-bold text-zinc-500">{currentIndex + 1}/{items.length}</span>
+        <span className="text-xs font-bold text-muted">{currentIndex + 1}/{items.length}</span>
       </div>
 
       {/* Flashcard area */}
       <div className="flex-1 flex flex-col items-center justify-center p-6">
-        <p className="text-sm text-zinc-500 mb-4 font-medium">
+        <p className="text-sm text-muted mb-4 font-medium">
           {isFlipped ? "Did you get it right?" : "Tap the card to reveal"}
         </p>
 
@@ -99,21 +99,21 @@ export default function ReviewPage() {
             exit={{ rotateY: -90, opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={() => !isFlipped && setIsFlipped(true)}
-            className="w-full max-w-xs glass card-elevated p-8 text-center cursor-pointer hover:shadow-lg transition-shadow min-h-[200px] flex flex-col items-center justify-center"
+            className="w-full max-w-xs card p-8 text-center cursor-pointer hover:border-accent transition-colors min-h-[200px] flex flex-col items-center justify-center"
           >
             {!isFlipped ? (
               <>
-                <span className="text-3xl font-extrabold text-zinc-800 mb-2">
+                <span className="text-3xl font-extrabold text-text font-display mb-2">
                   {currentItem?.lithuanian}
                 </span>
-                <span className="text-sm text-zinc-400">Tap to reveal translation</span>
+                <span className="text-sm text-muted">Tap to reveal translation</span>
               </>
             ) : (
               <>
-                <span className="text-lg font-bold text-zinc-500 mb-2">
+                <span className="text-lg font-bold text-muted mb-2">
                   {currentItem?.lithuanian}
                 </span>
-                <span className="text-3xl font-extrabold text-brand-green-600">
+                <span className="text-3xl font-extrabold text-accent font-display">
                   {currentItem?.english}
                 </span>
               </>
@@ -131,13 +131,13 @@ export default function ReviewPage() {
         >
           <button
             onClick={() => handleAnswer(false)}
-            className="flex-1 btn-red py-4 text-lg flex items-center justify-center gap-2"
+            className="flex-1 btn-error py-4 text-lg flex items-center justify-center gap-2"
           >
             <X className="w-5 h-5" /> Missed it
           </button>
           <button
             onClick={() => handleAnswer(true)}
-            className="flex-1 btn-green py-4 text-lg flex items-center justify-center gap-2"
+            className="flex-1 btn-accent py-4 text-lg flex items-center justify-center gap-2"
           >
             <Check className="w-5 h-5" /> Got it
           </button>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Check, Trophy } from "lucide-react";
-import { getProgress, completeLesson } from "@/lib/progress";
+import { getProgress, saveProgress } from "@/lib/progress";
 import { getDailyChallengeExercise, isDailyChallengeCompleted, completeDailyChallenge } from "@/lib/dailyChallenge";
 import { Exercise } from "@/data/curriculum";
 import MultipleChoiceExercise from "@/components/exercises/MultipleChoiceExercise";
@@ -43,10 +43,8 @@ export default function DailyChallenge() {
     completeDailyChallenge();
 
     if (correct) {
-      // Award 2x XP
       const progress = getProgress();
       progress.xp += 30;
-      const { saveProgress } = require("@/lib/progress");
       saveProgress(progress);
     }
 
@@ -59,16 +57,16 @@ export default function DailyChallenge() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="glass card-elevated p-4 flex items-center gap-3"
+          className="card p-4 flex items-center gap-3"
         >
-          <div className="w-10 h-10 rounded-full bg-brand-gold-100 flex items-center justify-center shrink-0">
-            <Trophy className="w-5 h-5 text-brand-gold-500" />
+          <div className="w-10 h-10 rounded bg-accent2/10 flex items-center justify-center shrink-0">
+            <Trophy className="w-5 h-5 text-accent2" />
           </div>
           <div>
-            <p className="font-bold text-zinc-800 text-sm">Daily Challenge Complete!</p>
-            <p className="text-zinc-500 text-xs">Come back tomorrow for a new one</p>
+            <p className="font-semibold text-text text-sm">Daily Challenge Complete!</p>
+            <p className="text-muted text-xs">Come back tomorrow for a new one</p>
           </div>
-          <Check className="w-5 h-5 text-brand-green-500 ml-auto" />
+          <Check className="w-5 h-5 text-accent ml-auto" />
         </motion.div>
       );
     }
@@ -79,29 +77,27 @@ export default function DailyChallenge() {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="glass card-elevated overflow-hidden"
+      className="card overflow-hidden"
     >
-      {/* Header — always visible */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full p-4 flex items-center gap-3 text-left"
       >
-        <div className="w-10 h-10 rounded-full gradient-fire flex items-center justify-center shrink-0">
-          <Zap className="w-5 h-5 text-white" />
+        <div className="w-10 h-10 rounded bg-accent2/10 flex items-center justify-center shrink-0">
+          <Zap className="w-5 h-5 text-accent2" />
         </div>
         <div className="flex-1">
-          <p className="font-bold text-zinc-800 text-sm">Daily Challenge</p>
-          <p className="text-brand-gold-500 text-xs font-bold">2x XP Reward!</p>
+          <p className="font-semibold text-text text-sm">Daily Challenge</p>
+          <p className="text-accent2 text-xs font-bold uppercase tracking-wider">2x XP Reward!</p>
         </div>
         <motion.span
           animate={{ rotate: expanded ? 180 : 0 }}
-          className="text-zinc-400 text-sm"
+          className="text-muted text-sm"
         >
           ▼
         </motion.span>
       </button>
 
-      {/* Expanded exercise */}
       <AnimatePresence>
         {expanded && (
           <motion.div
@@ -109,34 +105,24 @@ export default function DailyChallenge() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="border-t border-zinc-100"
+            className="border-t border-border"
           >
             <div className="p-4 space-y-4">
-              <p className="text-sm font-bold text-zinc-700">{exercise.prompt}</p>
+              <p className="text-sm font-bold text-text">{exercise.prompt}</p>
 
               {(exercise.type === "multiple_choice" || exercise.type === "listening") && (
-                <MultipleChoiceExercise
-                  exercise={exercise}
-                  selectedOption={selectedOption}
-                  isCorrect={isCorrect}
-                  onSelect={setSelectedOption}
-                />
+                <MultipleChoiceExercise exercise={exercise} selectedOption={selectedOption} isCorrect={isCorrect} onSelect={setSelectedOption} />
               )}
               {exercise.type === "fill_in_blank" && (
-                <FillInBlankExercise
-                  fillInput={fillInput}
-                  isCorrect={isCorrect}
-                  onChange={setFillInput}
-                  onSubmit={handleCheck}
-                />
+                <FillInBlankExercise fillInput={fillInput} isCorrect={isCorrect} onChange={setFillInput} onSubmit={handleCheck} />
               )}
 
               {isCorrect === null && (
                 <button
                   onClick={handleCheck}
                   disabled={!selectedOption && !fillInput.trim()}
-                  className={`w-full py-3 rounded-xl font-bold transition-all ${
-                    selectedOption || fillInput.trim() ? "btn-green" : "bg-zinc-200 text-zinc-400"
+                  className={`w-full py-3 rounded font-bold transition-all ${
+                    selectedOption || fillInput.trim() ? "btn-accent" : "bg-surface-light text-muted"
                   }`}
                 >
                   Check
@@ -144,12 +130,8 @@ export default function DailyChallenge() {
               )}
 
               {isCorrect !== null && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className={`text-center font-bold ${isCorrect ? "text-brand-green-600" : "text-brand-red-500"}`}
-                >
-                  {isCorrect ? "+30 XP! 🎉" : `Answer: ${exercise.correctAnswer}`}
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={`text-center font-bold ${isCorrect ? "text-accent" : "text-error"}`}>
+                  {isCorrect ? "+30 XP!" : `Answer: ${exercise.correctAnswer}`}
                 </motion.p>
               )}
             </div>

@@ -48,11 +48,11 @@ export default function MultipleChoiceExercise({ exercise, selectedOption, isCor
               {}
             }
             transition={{ duration: 0.4 }}
-            className={`py-4 px-6 text-left text-lg rounded-xl border-2 border-b-4 font-bold transition-colors ${
-              showCorrect ? "bg-brand-green-100 border-brand-green-500 text-brand-green-700" :
-              showWrong ? "bg-brand-red-50 border-brand-red-500 text-red-700" :
-              isSelected ? "bg-brand-blue-50 border-brand-blue-500 text-blue-700" :
-              "bg-white border-zinc-200 text-zinc-700 hover:border-zinc-300"
+            className={`py-4 px-6 text-left text-base rounded border transition-colors ${
+              showCorrect ? "bg-success/10 border-success text-success" :
+              showWrong ? "bg-error/10 border-error text-error" :
+              isSelected ? "bg-accent/10 border-accent text-accent" :
+              "bg-bg border-border text-text hover:border-accent hover:text-accent"
             }`}
           >
             {opt}

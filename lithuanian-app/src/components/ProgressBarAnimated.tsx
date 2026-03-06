@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import { useEffect, useRef } from "react";
 
 interface ProgressBarAnimatedProps {
-  progress: number; // 0 to 1
+  progress: number;
   showCelebration?: boolean;
 }
 
@@ -18,16 +18,16 @@ export default function ProgressBarAnimated({ progress, showCelebration = true }
         particleCount: 80,
         spread: 70,
         origin: { y: 0.3 },
-        colors: ["#22c55e", "#eab308", "#3b82f6"],
+        colors: ["#c8f53a", "#f5a623", "#5ef252"],
       });
     }
     prevProgress.current = progress;
   }, [progress, showCelebration]);
 
   return (
-    <div className="w-full h-3 bg-zinc-200 rounded-full overflow-hidden">
+    <div className="w-full h-3 bg-surface-light border border-border rounded-full overflow-hidden">
       <motion.div
-        className="h-full rounded-full bg-brand-green-500"
+        className="h-full bg-accent"
         initial={{ width: 0 }}
         animate={{ width: `${Math.min(progress * 100, 100)}%` }}
         transition={{ duration: 0.4, ease: "easeOut" }}

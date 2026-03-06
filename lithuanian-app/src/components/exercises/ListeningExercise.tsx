@@ -25,20 +25,19 @@ const itemVariants = {
 export default function ListeningExercise({ exercise, selectedOption, isCorrect, onSelect, onPlayAudio }: Props) {
   return (
     <div className="space-y-6 mt-auto">
-      {/* Audio button with wave visualization */}
       <div className="flex justify-center">
         <motion.button
           onClick={onPlayAudio}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
-          className="bg-brand-blue-500 p-5 rounded-2xl text-white shadow-lg flex items-center gap-3"
+          className="bg-accent/20 border border-accent p-5 rounded text-accent flex items-center gap-3"
         >
           <Volume2 className="w-8 h-8" />
           <div className="flex items-center gap-1">
             {[1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
-                className="w-1 bg-white/80 rounded-full"
+                className="w-1 bg-accent/80 rounded-full"
                 style={{
                   animation: `wave-bar 0.8s ease-in-out infinite`,
                   animationDelay: `${i * 0.1}s`,
@@ -50,7 +49,6 @@ export default function ListeningExercise({ exercise, selectedOption, isCorrect,
         </motion.button>
       </div>
 
-      {/* Options */}
       <motion.div
         className="grid gap-3"
         variants={containerVariants}
@@ -76,11 +74,11 @@ export default function ListeningExercise({ exercise, selectedOption, isCorrect,
                 showWrong ? { x: [0, -8, 8, -5, 5, 0] } :
                 {}
               }
-              className={`py-4 px-6 text-left text-lg rounded-xl border-2 border-b-4 font-bold transition-colors ${
-                showCorrect ? "bg-brand-green-100 border-brand-green-500 text-brand-green-700" :
-                showWrong ? "bg-brand-red-50 border-brand-red-500 text-red-700" :
-                isSelected ? "bg-brand-blue-50 border-brand-blue-500 text-blue-700" :
-                "bg-white border-zinc-200 text-zinc-700 hover:border-zinc-300"
+              className={`py-4 px-6 text-left text-base rounded border transition-colors ${
+                showCorrect ? "bg-success/10 border-success text-success" :
+                showWrong ? "bg-error/10 border-error text-error" :
+                isSelected ? "bg-accent/10 border-accent text-accent" :
+                "bg-bg border-border text-text hover:border-accent hover:text-accent"
               }`}
             >
               {opt}

@@ -35,12 +35,12 @@ export default function FillInBlankExercise({ fillInput, isCorrect, onChange, on
             if (e.key === "Enter") onSubmit();
           }}
           placeholder="Type your answer..."
-          className={`w-full bg-white border-2 rounded-xl px-5 py-4 text-lg outline-none transition-all ${
+          className={`w-full bg-bg border rounded px-5 py-4 text-base outline-none transition-all text-text placeholder:text-muted ${
             isCorrect === true
-              ? "border-brand-green-500 bg-brand-green-100 text-brand-green-700"
+              ? "border-success bg-success/5 text-success"
               : isCorrect === false
-              ? "border-brand-red-500 bg-brand-red-50 text-red-700"
-              : "border-zinc-200 focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-200"
+              ? "border-error bg-error/5 text-error"
+              : "border-border focus:border-accent"
           }`}
           disabled={isCorrect !== null}
           autoFocus

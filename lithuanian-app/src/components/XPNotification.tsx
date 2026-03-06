@@ -20,8 +20,8 @@ export default function XPNotification({ xp, show, onComplete }: XPNotificationP
           onAnimationComplete={onComplete}
           className="fixed top-1/3 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
         >
-          <div className="gradient-gold rounded-full px-6 py-3 shadow-lg border-2 border-brand-gold-400">
-            <span className="text-2xl font-extrabold text-brand-gold-700">+{xp} XP</span>
+          <div className="bg-surface border-2 border-accent2 rounded px-6 py-3">
+            <span className="text-2xl font-bold text-accent2 font-display">+{xp} XP</span>
           </div>
         </motion.div>
       )}

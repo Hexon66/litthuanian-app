@@ -23,7 +23,7 @@ export default function HeartDisplay({ hearts, maxHearts = 5, justLost = false }
             transition={{ duration: 0.4 }}
           >
             <Heart
-              className={`w-5 h-5 ${isFilled ? "text-brand-red-500 fill-brand-red-500" : "text-zinc-200 fill-zinc-200"}`}
+              className={`w-5 h-5 ${isFilled ? "text-error fill-error" : "text-border fill-border"}`}
             />
           </motion.div>
         );

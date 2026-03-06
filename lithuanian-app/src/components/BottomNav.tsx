@@ -15,7 +15,7 @@ const tabs = [
 
 export default function BottomNav({ activeTab }: { activeTab: Tab }) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto glass border-t border-white/40 px-4 py-2 flex items-center justify-around pb-safe z-20">
+    <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-surface border-t border-border px-4 py-2 flex items-center justify-around pb-safe z-20">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
@@ -24,7 +24,7 @@ export default function BottomNav({ activeTab }: { activeTab: Tab }) {
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-brand-green-500"
+                  className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-accent"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -33,11 +33,11 @@ export default function BottomNav({ activeTab }: { activeTab: Tab }) {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <tab.icon
-                  className={`w-6 h-6 mb-0.5 transition-colors ${isActive ? "text-brand-green-500" : "text-zinc-400"}`}
+                  className={`w-6 h-6 mb-0.5 transition-colors ${isActive ? "text-accent" : "text-muted"}`}
                 />
               </motion.div>
               <span
-                className={`text-[10px] font-bold transition-colors ${isActive ? "text-brand-green-600" : "text-zinc-400"}`}
+                className={`text-[10px] font-semibold uppercase tracking-wider transition-colors ${isActive ? "text-accent" : "text-muted"}`}
               >
                 {tab.label}
               </span>

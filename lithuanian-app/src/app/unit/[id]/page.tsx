@@ -42,7 +42,7 @@ export default function UnitIntroPage() {
   };
 
   if (!unit) {
-    return <div className="flex items-center justify-center h-screen text-zinc-500">Unit not found</div>;
+    return <div className="flex items-center justify-center h-screen text-muted">Unit not found</div>;
   }
 
   const firstIncompleteLesson = unit.lessons.find((l) => {
@@ -55,45 +55,45 @@ export default function UnitIntroPage() {
     <div className="flex flex-col min-h-screen pb-8">
       {/* Header */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-green-500 to-brand-green-700" />
-        <div className="relative z-10 px-4 pt-4 pb-8">
+        <div className="absolute inset-0 bg-surface" />
+        <div className="relative z-10 px-4 pt-4 pb-8 border-b border-border">
           <Link href="/">
-            <button className="text-white/80 hover:text-white mb-4">
+            <button className="text-muted hover:text-text mb-4">
               <ArrowLeft className="w-6 h-6" />
             </button>
           </Link>
           <div className="flex items-center gap-3 mb-2">
             <span className="text-4xl">{unit.icon || "📚"}</span>
             <div>
-              <h1 className="text-2xl font-extrabold text-white">{unit.title}</h1>
-              <p className="text-white/80 text-sm">{unit.description}</p>
+              <h1 className="text-2xl font-extrabold text-text font-display">{unit.title}</h1>
+              <p className="text-muted text-sm">{unit.description}</p>
             </div>
           </div>
           <div className="mt-4 flex items-center gap-2">
-            <div className="flex-1 h-2 bg-white/20 rounded-full overflow-hidden">
+            <div className="flex-1 h-2 bg-surface-light border border-border rounded overflow-hidden">
               <motion.div
-                className="h-full bg-white rounded-full"
+                className="h-full bg-accent rounded"
                 initial={{ width: 0 }}
                 animate={{ width: `${unit.lessons.length > 0 ? (completedCount / unit.lessons.length) * 100 : 0}%` }}
                 transition={{ duration: 0.5 }}
               />
             </div>
-            <span className="text-white/80 text-xs font-bold">{completedCount}/{unit.lessons.length}</span>
+            <span className="text-muted text-xs font-bold">{completedCount}/{unit.lessons.length}</span>
           </div>
         </div>
       </div>
 
-      <AnimatedPage className="px-4 -mt-4">
+      <AnimatedPage className="px-4 pt-5">
         {/* Mascot greeting */}
-        <div className="glass card-elevated p-4 mb-5">
+        <div className="card p-4 mb-5">
           <Mascot mood="happy" size="sm" message={`Let's learn ${unit.title.toLowerCase()}!`} />
         </div>
 
         {/* Grammar Tips */}
         {unit.grammarTips && unit.grammarTips.length > 0 && (
           <section className="mb-5">
-            <h3 className="font-bold text-zinc-800 mb-2 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-brand-green-600" /> Grammar Preview
+            <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-accent" /> Grammar Preview
             </h3>
             <div className="space-y-3">
               {unit.grammarTips.map((tip, i) => (
@@ -102,16 +102,16 @@ export default function UnitIntroPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass card-elevated p-4"
+                  className="card p-4"
                 >
-                  <h4 className="font-bold text-sm text-brand-green-700 mb-2">{tip.title}</h4>
-                  <p className="text-zinc-600 text-sm mb-3">{tip.explanation}</p>
+                  <h4 className="font-bold text-sm text-accent mb-2">{tip.title}</h4>
+                  <p className="text-muted text-sm mb-3">{tip.explanation}</p>
                   <div className="space-y-1">
                     {tip.examples.map((ex, j) => (
                       <div key={j} className="flex items-center gap-2 text-sm">
-                        <span className="font-bold text-zinc-800">{ex.lithuanian}</span>
-                        <span className="text-zinc-400">—</span>
-                        <span className="text-zinc-500">{ex.english}</span>
+                        <span className="font-bold text-text">{ex.lithuanian}</span>
+                        <span className="text-border">—</span>
+                        <span className="text-muted">{ex.english}</span>
                       </div>
                     ))}
                   </div>
@@ -124,7 +124,7 @@ export default function UnitIntroPage() {
         {/* Key Vocabulary */}
         {unit.keyVocabulary && unit.keyVocabulary.length > 0 && (
           <section className="mb-6">
-            <h3 className="font-bold text-zinc-800 mb-2">Key Vocabulary</h3>
+            <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-2">Key Vocabulary</h3>
             <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
               {unit.keyVocabulary.map((word, i) => (
                 <motion.button
@@ -133,16 +133,16 @@ export default function UnitIntroPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => playWord(word.audioText || word.lithuanian)}
-                  className="glass card-elevated px-4 py-3 shrink-0 flex flex-col items-start min-w-[120px] hover:bg-white/90 transition-colors"
+                  className="card px-4 py-3 shrink-0 flex flex-col items-start min-w-[120px] hover:border-accent transition-colors"
                 >
                   <div className="flex items-center gap-1 mb-1">
-                    <span className="font-bold text-sm text-zinc-800">{word.lithuanian}</span>
-                    <Volume2 className="w-3 h-3 text-brand-green-500" />
+                    <span className="font-bold text-sm text-text">{word.lithuanian}</span>
+                    <Volume2 className="w-3 h-3 text-accent" />
                   </div>
-                  <span className="text-xs text-zinc-500">{word.english}</span>
+                  <span className="text-xs text-muted">{word.english}</span>
                   {word.gender && (
-                    <span className={`text-[10px] font-bold mt-1 px-1.5 py-0.5 rounded-full ${
-                      word.gender === "m" ? "bg-blue-100 text-blue-600" : "bg-pink-100 text-pink-600"
+                    <span className={`text-[10px] font-bold mt-1 px-1.5 py-0.5 rounded ${
+                      word.gender === "m" ? "bg-blue-900/30 text-blue-400" : "bg-pink-900/30 text-pink-400"
                     }`}>
                       {word.gender === "m" ? "masc" : "fem"}
                     </span>
@@ -155,7 +155,7 @@ export default function UnitIntroPage() {
 
         {/* Lessons list */}
         <section className="mb-6">
-          <h3 className="font-bold text-zinc-800 mb-2">Lessons</h3>
+          <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-2">Lessons</h3>
           <div className="space-y-2">
             {unit.lessons.map((lesson, i) => {
               const progress = getProgress();
@@ -168,17 +168,17 @@ export default function UnitIntroPage() {
                   transition={{ delay: i * 0.05 }}
                 >
                   <Link href={`/lesson/${lesson.id}`}>
-                    <div className={`glass card-elevated p-3 flex items-center gap-3 transition-all hover:shadow-md ${isCompleted ? "border-l-4 border-brand-gold-500" : ""}`}>
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                        isCompleted ? "bg-brand-gold-400 text-white" : "bg-brand-green-100 text-brand-green-700"
+                    <div className={`card p-3 flex items-center gap-3 transition-all hover:border-accent ${isCompleted ? "border-l-2 border-l-accent2" : ""}`}>
+                      <div className={`w-8 h-8 rounded flex items-center justify-center text-sm font-bold ${
+                        isCompleted ? "bg-accent2/20 text-accent2" : "bg-accent/10 text-accent"
                       }`}>
                         {i + 1}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-bold text-sm text-zinc-800 truncate">{lesson.title}</p>
-                        <p className="text-xs text-zinc-500 truncate">{lesson.description}</p>
+                        <p className="font-bold text-sm text-text truncate">{lesson.title}</p>
+                        <p className="text-xs text-muted truncate">{lesson.description}</p>
                       </div>
-                      {isCompleted && <span className="text-brand-gold-500 text-lg">✓</span>}
+                      {isCompleted && <span className="text-accent2 text-lg">✓</span>}
                     </div>
                   </Link>
                 </motion.div>
@@ -191,7 +191,7 @@ export default function UnitIntroPage() {
         {startLessonId && (
           <button
             onClick={() => router.push(`/lesson/${startLessonId}`)}
-            className="btn-green w-full py-4 text-lg flex items-center justify-center gap-2"
+            className="btn-accent w-full py-4 text-lg flex items-center justify-center gap-2"
           >
             <Play className="w-5 h-5" />
             {completedCount > 0 ? "Continue Learning" : "Start Learning"}
